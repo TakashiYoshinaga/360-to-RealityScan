@@ -101,8 +101,9 @@ For detailed usage, refer to the following videos:
 
 ![AutoMasker Result](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/002-MaskImage.jpg)
 
-> **💡 Why Masking Matters**  
-> The accuracy of SfM greatly affects the quality of the Gaussian Splatting output. Using mask information to exclude unnecessary regions during training can significantly improve output quality.  
+> **💡 Two Reasons Why Masking Matters**  
+> First, subjects that move or lack distinct features — such as people, vehicles, and low-texture objects — introduce **noise into the SfM process**, reducing the accuracy of camera pose estimation. Since SfM accuracy directly impacts the quality of the Gaussian Splatting output, masking these subjects out is essential.  
+> Second, **the same noise degrades quality during the training stage as well**. When the same subject appears with a different appearance across frames, the Gaussians struggle to converge to the correct shape and color. Masking protects quality at both stages of the pipeline.  
 > 📺 [Reference Video](https://youtu.be/XcmmxKbjESQ?si=wPF74IBWmgV6mpxk&t=59)
 
 > **📝 About AutoMasker**  
