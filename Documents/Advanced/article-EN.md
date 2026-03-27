@@ -369,7 +369,8 @@ Here is an example training configuration. Feel free to experiment with differen
 | More than 300 images | `number of images ÷ 300` |
 
 > **⚠️ If Training Doesn't Work**  
-> If the Gaussian Splatting training fails to converge and the view whites out, setting Steps Scaler to **2–3x** the value of `number of images ÷ 300` tends to stabilize training.
+> If the Gaussian Splatting training fails to converge and the view whites out, setting Steps Scaler to **2–3x** the value of `number of images ÷ 300` tends to stabilize training.  
+> In the author's experience, it's also common practice to start training from the beginning with a value around **1.5–2x** the recommended value.
 
 4.　Set **Max Gaussians** for the maximum number of Gaussians  
    The default value is generally fine, but increase it if the output lacks detail.
