@@ -2,9 +2,10 @@
 
 ## Introduction
 
-Gaussian Splatting has been gaining attention as a method for recreating wide outdoor scenes in 3D. While related information is increasingly appearing on social media and blogs, it is scattered across many sources, making it difficult to piece together an efficient workflow. The process also involves switching between multiple applications, which can feel daunting for beginners.
+Gaussian Splatting has been gaining attention as a method for recreating wide outdoor scenes in 3D. While related information is increasingly appearing on social media and blogs, it is scattered across many sources, making it difficult to piece together an efficient workflow. The process also requires switching between multiple applications, which can feel daunting for beginners.
 
 In this article, I'll introduce the **minimum viable workflow** I personally use for Gaussian Splatting as a hobby.  
+ All tools covered here are **free to use** (with some optional paid features), making it easy to get started even if you're new to Gaussian Splatting.  
 For techniques to further improve quality, please refer to the companion article "[Quality Improvement Edition](../Advanced/article-EN.md)".
 
 ### Sample Output from This Workflow
@@ -42,8 +43,8 @@ For techniques to further improve quality, please refer to the companion article
 
 Gaussian Splatting generally follows these 4 steps:
 
-| Step | Process | Description |
-|------|---------|-------------|
+| # | Process | Description |
+|---|---------|-------------|
 | 1 | **Capture** | Shoot the scene with a 360° camera |
 | 2 | **SfM** (Structure from Motion) | Estimate the position from which each image was taken |
 | 3 | **Point Cloud Generation** | Generate a point cloud based on the camera positions from SfM |
@@ -71,6 +72,7 @@ If you're using an Insta360, export it using **Insta360 Studio** (the PC applica
 ## Step 2. SfM and Point Cloud Generation
 
 This step uses **360° Gaussian**.  
+Because 360° Gaussian supports multiple tools for both SfM and Gaussian Splatting, it makes it easy to compare and test different combinations of tools and methods.  
 For detailed usage, refer to the following videos:
 
 - 📺 [Basic Tutorial](https://www.youtube.com/watch?v=XcmmxKbjESQ)  
@@ -78,9 +80,9 @@ For detailed usage, refer to the following videos:
 
 ### 2.1 Image Extraction
 
-1.　Launch **360° Gaussian**
-2.　Click **Add Video(s)** and select the Equirectangular video
-3.　Select **Splitting** and configure the extraction settings
+1.　Launch **360° Gaussian**  
+2.　Click **Add Video(s)** and select the Equirectangular video  
+3.　Select **Splitting** and configure the extraction settings  
 
 | Parameter | Description |
 |-----------|-------------|
@@ -94,8 +96,8 @@ For detailed usage, refer to the following videos:
 
 **AutoMasker** is a tool that automatically masks regions that are unnecessary for Gaussian Splatting.
 
-1.　Click **AutoMasker**
-2.　Enable **Use AutoMasker**
+1.　Click **AutoMasker**  
+2.　Enable **Use AutoMasker**  
 3.　Enter keywords in **Detection Keywords** separated by periods (`.`)  
    Example: `person.sky`
 
@@ -113,8 +115,8 @@ For detailed usage, refer to the following videos:
 
 ### 2.3 SfM Configuration
 
-1.　Click **Alignment**
-2.　Configure **Training Method**
+1.　Click **Alignment**  
+2.　Configure **Training Method**  
 
 Selecting LichtFeld will run SfM, point cloud generation, and Gaussian Splatting all at once, but the LichtFeld Studio window won't open during processing, so you cannot observe the progress.
 
@@ -123,6 +125,9 @@ My preferred settings are:
 - **Training Method**: `No Training`
 - **SfM**: `SphereSFM`
 
+> **⚠️ Do not select `SphereSFM GUT`**  
+> The workflow using `SphereSFM GUT` is covered in the companion article "Quality Improvement Edition". In this article, select `SphereSFM` (without the GUT suffix).
+
 ![Alignment Settings Screen](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/003-AlignmentSetting-01.jpg)
 
 3.　Open **Advanced SphereSFM Setting** and select the camera image size from **Preset**  
@@ -130,7 +135,7 @@ My preferred settings are:
 
 ![SphereSFM Preset Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/004-SphreSfM_Setting-01.jpg)
 
-4.　Select `exhaustive` for **Matcher**  
+4.　Select `exhaustive` for **Matcher**    
    Other settings can be left at their defaults.
 
 > **💡 About Matcher Selection**  
@@ -162,9 +167,9 @@ Verify that the camera positions and point cloud have been generated correctly.
 
 ### 3.1 Loading Data
 
-1.　Launch **LichtFeld Studio**
-2.　Drag and drop the **`train_data`** folder generated above into the window
-3.　When the **Load DataSet** dialog appears, click **Load**
+1.　Launch **LichtFeld Studio**  
+2.　Drag and drop the **`train_data`** folder generated above into the window  
+3.　When the **Load DataSet** dialog appears, click **Load**  
 
 ![LichtFeld Studio Launch Screen](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/007-LichtFeldStudioUI-01.jpg)
 ![Load DataSet Dialog](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/008-LoadDataset.jpg)
@@ -178,9 +183,9 @@ If you don't need to see the camera images, uncheck **Camera Frustum** in the **
 
 Here is an example training configuration. Feel free to experiment with different settings as you get more familiar.
 
-1.　Click the **Training** tab
-2.　Select `MCMC` for **Strategy**
-3.　Set **Steps Scaler** appropriately
+1.　Click the **Training** tab  
+2.　Select `MCMC` for **Strategy**  
+3.　Set **Steps Scaler** appropriately  
 
 | Condition | Recommended Value |
 |-----------|------------------|
@@ -188,7 +193,7 @@ Here is an example training configuration. Feel free to experiment with differen
 | More than 300 images | `number of images ÷ 300` |
 
 > **⚠️ If Training Doesn't Work**  
-> If the Gaussian Splatting training fails to converge and the view whites out, try setting Steps Scaler to **2–3x** the value of `number of images ÷ 300`.
+> If the Gaussian Splatting training fails to converge and the view whites out, setting Steps Scaler to **2–3x** the value of `number of images ÷ 300` tends to stabilize training.
 
 4.　Set **Max Gaussians** for the maximum number of Gaussians  
    The default value is generally fine, but increase it if the output lacks detail.
@@ -205,9 +210,9 @@ For other parameters, start with the above settings and experiment as you become
 ### 3.3 Running Training
 
 1.　Use the mouse to zoom in on the area you want to observe during training  
-   (In my example, around a bridge)
-2.　Click **Start Training** to begin
-3.　The display starts blurry but gradually becomes clearer as steps progress
+   (In my example, around a bridge)  
+2.　Click **Start Training** to begin  
+3.　The display starts blurry but gradually becomes clearer as steps progress  
 
 ![Training in Progress](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/011-LichtFeldStudioUI-03.jpg)
 
@@ -218,8 +223,8 @@ If you want to save intermediate results, click **Save Checkpoint**.
 
 The exported data can be used with tools like [SuperSplat Editor](https://superspl.at/editor) for creating videos or viewing in a viewer.
 
-1.　Click **File → Export**
-2.　Select the output format (e.g., `.ply`)
+1.　Click **File → Export**  
+2.　Select the output format (e.g., `.ply`)  
 
 ---
 

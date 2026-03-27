@@ -4,7 +4,10 @@
 
 Gaussian Splatting has been gaining attention as a method for recreating wide outdoor scenes in 3D. While related information is increasingly appearing on social media and blogs, it is scattered across many sources, making it difficult to build an efficient workflow.
 
-In the [previous article (Basic Workflow)](../Basic/article-EN.md), I introduced the minimum viable workflow I use for Gaussian Splatting as a hobby. This time, I'll explain how to further improve quality with just a **few small tweaks** to that workflow.
+In the [previous article (Basic Workflow)](../Basic/article-EN.md), I introduced the minimum viable workflow I use for Gaussian Splatting as a hobby, built entirely around free-to-use tools. This time, I'll explain how to further improve quality with just a **few small tweaks** to that workflow.
+
+> **💡 Before You Start**  
+> This article includes a step that involves running a Python script. If you're new to Gaussian Splatting or unfamiliar with Python, I recommend working through the [Basic Workflow](../Basic/article-EN.md) first to get a feel for the overall process before tackling this one.
 
 ### Output Comparison with the Basic Workflow
 
@@ -27,8 +30,8 @@ Generate SfM and a point cloud from Equirectangular images → Feed the Cube Map
 **Quality Improvement Edition (this article):**  
 After generating SfM and a point cloud from Equirectangular images, the following steps are added:
 
-1.　**Excluding top and bottom images** — When splitting into multiple viewpoints, images showing mostly sky or ground are excluded. This reduces low-texture regions that can cause noise.
-2.　**Point cloud regeneration** — The point cloud is recalculated from the extracted images. By generating a point cloud that matches the **pinhole camera model** used during Gaussian Splatting training (rather than the Equirectangular model used during SfM), noise factors during training are eliminated.
+1.　**Excluding top and bottom images** — When splitting into multiple viewpoints, images showing mostly sky or ground are excluded. This reduces low-texture regions that can cause noise.  
+2.　**Point cloud regeneration** — The point cloud is recalculated from the extracted images. By generating a point cloud that matches the **pinhole camera model** used during Gaussian Splatting training (rather than the Equirectangular model used during SfM), noise factors during training are eliminated.  
 
 > **⚠️ Prerequisites**  
 > This article assumes that the 360° camera is held **nearly vertical** during shooting.
@@ -71,8 +74,8 @@ After generating SfM and a point cloud from Equirectangular images, the followin
 
 Gaussian Splatting generally follows these steps:
 
-| Step | Process | Description |
-|------|---------|-------------|
+| # | Process | Description |
+|---|---------|-------------|
 | 1 | **Capture** | Shoot the scene with a 360° camera |
 | 2 | **SfM** (Structure from Motion) | Estimate the position from which each image was taken |
 | 3 | **Point Cloud Generation** | Generate a point cloud based on the camera positions from SfM |
@@ -105,6 +108,7 @@ If you're using an Insta360, export it using **Insta360 Studio** (the PC applica
 ## Step 2. SfM and Point Cloud Generation
 
 This step uses **360° Gaussian**.  
+Because 360° Gaussian supports multiple tools for both SfM and Gaussian Splatting, it makes it easy to compare and test different combinations of tools and methods.  
 For detailed usage, refer to the following videos:
 
 - 📺 [Basic Tutorial](https://www.youtube.com/watch?v=XcmmxKbjESQ)  
@@ -112,9 +116,9 @@ For detailed usage, refer to the following videos:
 
 ### 2.1 Image Extraction
 
-1.　Launch **360° Gaussian**
-2.　Click **Add Video(s)** and select the Equirectangular video
-3.　Select **Splitting** and configure the extraction settings
+1.　Launch **360° Gaussian**  
+2.　Click **Add Video(s)** and select the Equirectangular video  
+3.　Select **Splitting** and configure the extraction settings  
 
 | Parameter | Description |
 |-----------|-------------|
@@ -128,8 +132,8 @@ For detailed usage, refer to the following videos:
 
 **AutoMasker** is a tool that automatically masks regions that are unnecessary for Gaussian Splatting.
 
-1.　Click **AutoMasker**
-2.　Enable **Use AutoMasker**
+1.　Click **AutoMasker**  
+2.　Enable **Use AutoMasker**  
 3.　Enter keywords in **Detection Keywords** separated by periods (`.`)  
    Example: `person.sky`
 
@@ -147,8 +151,8 @@ For detailed usage, refer to the following videos:
 
 ### 2.3 SfM Configuration
 
-1.　Click **Alignment**
-2.　Configure **Training Method**
+1.　Click **Alignment**  
+2.　Configure **Training Method**  
 
 Selecting LichtFeld will run SfM, point cloud generation, and Gaussian Splatting all at once, but the LichtFeld Studio window won't open during processing, so you cannot observe the progress.
 
@@ -215,8 +219,8 @@ This is the key step in this article. The SfM results are imported into RealityS
 
 ### 3.1 Input/Output File Configuration
 
-1.　Run **`sphresfm_to_realityscan.py`**
-2.　Specify each path as follows:
+1.　Run **`sphresfm_to_realityscan.py`**  
+2.　Specify each path as follows:  
 
 | Item | Target |
 |------|--------|
@@ -244,16 +248,20 @@ When complete, you'll see the following screen:
 
 The SfM results are now ready to be imported into RealityScan.
 
+> **📝 Note**  
+> If you specify both `transforms.json` and the PLY file, the output will include complete COLMAP-format data containing camera poses, a point cloud, and image information.  
+> If you prefer to skip point cloud regeneration in RealityScan and use the images split by this tool directly for Gaussian Splatting, proceed to **Step 4. Gaussian Splatting**.
+
 ### 3.4 Point Cloud Generation in RealityScan
 
-1.　Launch **RealityScan**
-2.　Click the **WORKFLOW** tab
-3.　Click **Folder** and select the **`all`** folder inside the `RealityScan` folder
-4.　Open **Inputs** and press `Ctrl + A` to select all images
+1.　Launch **RealityScan**  
+2.　Click the **WORKFLOW** tab  
+3.　Click **Folder** and select the **`all`** folder inside the `RealityScan` folder  
+4.　Open **Inputs** and press `Ctrl + A` to select all images  
 
 ![RealityScan Inputs Screen](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/015-RealityScanUI-01.jpg)
 
-5.　Configure the detail settings as follows:
+5.　Configure the detail settings as follows:  
 
 | Category | Item | Value |
 |----------|------|-------|
@@ -265,8 +273,8 @@ The SfM results are now ready to be imported into RealityScan.
 
 ![RealityScan Detail Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/016-RealityScanUI-02.jpg)
 
-6.　Click the **ALIGNMENT** tab
-7.　Click **Align Images**
+6.　Click the **ALIGNMENT** tab  
+7.　Click **Align Images**  
 
 ![Align Images Execution](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/017-RealityScanUI-03.jpg)
 
@@ -276,16 +284,16 @@ When processing is complete, the regenerated point cloud will be displayed.
 
 ### 3.5 Export
 
-First, export the **point cloud data**.
+**【Export Point Cloud Data】**
 
-1.　Click **Export** in the **WORKFLOW** tab
-2.　Click **Export**
+1.　Click **Export** in the **WORKFLOW** tab  
+2.　Click **Export**  
 
 ![Export Menu](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/019-RealityScanUI-05.jpg)
 
-3.　Click **Sparse point cloud as Polygon File Format (*.ply)**
-4.　Select the `RealityScan` folder and save with a suitable file name (e.g., `pointcloud.ply`)
-5.　Configure the **Exporter Setting** dialog as follows:
+3.　Click **Sparse point cloud as Polygon File Format (*.ply)**  
+4.　Select the `RealityScan` folder and save with a suitable file name (e.g., `pointcloud.ply`)  
+5.　Under **Export transformation settings → Scene transformation** in the **Exporter Setting** dialog, configure the following:  
 
 | Item | Value |
 |------|-------|
@@ -293,21 +301,21 @@ First, export the **point cloud data**.
 | Rotate Y | `0°` |
 | Rotate Z | `0°` |
 
-6.　Click **OK**
+6.　Click **OK**  
 
 ![Point Cloud Export Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/020-RealityScanUI-06.jpg)
 
-Next, export the **camera pose information** in COLMAP format.
+**【Export Camera Pose Information in COLMAP Format】**
 
-1.　Click **Export** again
-2.　Click **COLMAP Text Format**
-3.　Save to the `RealityScan` folder with any file name (e.g., `colmap`)
+1.　Click **Export** again  
+2.　Click **COLMAP Text Format**  
+3.　Save to the `RealityScan` folder with any file name (e.g., `colmap`)  
 
 > **📝 Note on File Overwriting**  
 > The `cameras.txt`, `images.txt`, and `points3D.txt` output by `sphresfm_to_realityscan.py` will be overwritten. This is fine, but if you want to keep the COLMAP files from before regeneration, move them to a separate folder beforehand.
 
-4.　In the **Export Dialog**, set **Export images** to `No`
-5.　Open **Export transformation settings → Scene transformation**
+4.　In the **Export Dialog**, set **Export images** to `No`  
+5.　Open **Export transformation settings → Scene transformation** and set the Rotation as follows:
 
 | Item | Value |
 |------|-------|
@@ -315,7 +323,7 @@ Next, export the **camera pose information** in COLMAP format.
 | Rotate Y | `0°` |
 | Rotate Z | `0°` |
 
-6.　Click **OK**
+6.　Click **OK**  
 
 ![COLMAP Export Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/021-RealityScanUI-07.jpg)
 
@@ -325,10 +333,11 @@ Next, export the **camera pose information** in COLMAP format.
 
 ### 4.1 Loading Data
 
-1.　Launch **LichtFeld Studio**
-2.　Drag and drop the **`RealityScan`** folder (directly under the video name folder) into the window
-3.　When the **Load DataSet** dialog appears, select `pointcloud.ply` from the `RealityScan` folder for **Init file**
-4.　Click **Load**
+1.　Launch **LichtFeld Studio**  
+2.　Drag and drop the **`RealityScan`** folder (directly under the video name folder) into the window  
+3.　When the **Load DataSet** dialog appears, select `pointcloud.ply` from the `RealityScan` folder for **Init file**  
+   ※ If you skipped point cloud regeneration in RealityScan, you can leave **Init file** blank  
+4.　Click **Load**  
 
 ![LichtFeld Studio Launch Screen](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/007-LichtFeldStudioUI-01.jpg)
 ![Load DataSet Dialog](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/022-LoadDataset.jpg)
@@ -342,9 +351,9 @@ If you don't need to see the camera images, uncheck **Camera Frustum** in the **
 
 Here is an example training configuration. Feel free to experiment with different settings as you get more familiar.
 
-1.　Click the **Training** tab
-2.　Select `MCMC` for **Strategy**
-3.　Set **Steps Scaler** appropriately
+1.　Click the **Training** tab  
+2.　Select `MCMC` for **Strategy**  
+3.　Set **Steps Scaler** appropriately  
 
 | Condition | Recommended Value |
 |-----------|------------------|
@@ -352,7 +361,7 @@ Here is an example training configuration. Feel free to experiment with differen
 | More than 300 images | `number of images ÷ 300` |
 
 > **⚠️ If Training Doesn't Work**  
-> If the Gaussian Splatting training fails to converge and the view whites out, try setting Steps Scaler to **2–3x** the value of `number of images ÷ 300`.
+> If the Gaussian Splatting training fails to converge and the view whites out, setting Steps Scaler to **2–3x** the value of `number of images ÷ 300` tends to stabilize training.
 
 4.　Set **Max Gaussians** for the maximum number of Gaussians  
    The default value is generally fine, but increase it if the output lacks detail.
@@ -369,9 +378,9 @@ For other parameters, start with the above settings and experiment as you become
 ### 4.3 Running Training
 
 1.　Use the mouse to zoom in on the area you want to observe during training  
-   (In my example, around a bridge)
-2.　Click **Start Training** to begin
-3.　The display starts blurry but gradually becomes clearer as steps progress
+   (In my example, around a bridge)  
+2.　Click **Start Training** to begin  
+3.　The display starts blurry but gradually becomes clearer as steps progress  
 
 ![Training in Progress](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/011-LichtFeldStudioUI-03.jpg)
 
@@ -382,8 +391,8 @@ If you want to save intermediate results, click **Save Checkpoint**.
 
 The exported data can be used with tools like [SuperSplat Editor](https://superspl.at/editor) for creating videos or viewing in a viewer.
 
-1.　Click **File → Export**
-2.　Select the output format (e.g., `.ply`)
+1.　Click **File → Export**  
+2.　Select the output format (e.g., `.ply`)  
 
 ---
 
@@ -391,8 +400,15 @@ The exported data can be used with tools like [SuperSplat Editor](https://supers
 
 Through testing with various indoor and outdoor scenes, I've confirmed that adding just a few steps to the basic workflow can produce a clear improvement in quality. The key points are:
 
-1.　**Reducing noise by excluding low-texture regions** (top and bottom images)
-2.　**Improving training accuracy by regenerating a point cloud matched to the pinhole camera model**
+1.　**Reducing noise by excluding low-texture regions** (top and bottom images)  
+2.　**Improving training accuracy by regenerating a point cloud matched to the pinhole camera model**  
+
+Underlying both of these is a fundamental principle: **high-quality output requires high-quality input**.
+
+- **In SfM**, the quality of the input images and the accuracy of the mask information directly determine how well camera poses can be estimated.  
+- **In Gaussian Splatting training**, the accuracy of the SfM results — along with continued use of high-quality images and masks — determines the quality of the final output.
+
+Being mindful of input quality at each step is, in my view, the most reliable path to better results.
 
 By building on this article's workflow with further adjustments, you should be able to pursue even higher quality Gaussian Splatting results.
 
