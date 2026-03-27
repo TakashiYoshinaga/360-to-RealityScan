@@ -1,4 +1,4 @@
-﻿# 手軽に始める 360° 画像を用いた Gaussian Splatting（クオリティ改善編）
+﻿# 手軽に始める 360° 画像を用いた Gaussian Splatting（クオリティ向上編）
 
 ## はじめに
 
