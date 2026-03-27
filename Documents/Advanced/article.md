@@ -159,10 +159,10 @@ LichtFeld を選択すると、SfM・点群生成・Gaussian Splatting まで一
 筆者は処理の経過を観察したいため、以下のように設定しています。
 
 - **Training Method**：`No Training`
-- **SfM**：`SphesreSFM GUT`
+- **SfM**：`SphereSFM GUT`
 
 > **⚠️ 基本手順編との違い**  
-> 基本手順編では `SphreSFM` を選択しましたが、本記事では **`SphreSFM GUT`** を使用します。お間違いのないようご注意ください。
+> 基本手順編では `SphereSFM` を選択しましたが、本記事では **`SphereSFM GUT`** を使用します。お間違いのないようご注意ください。
 
 ![Alignment の設定画面](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/013-AlignmentSetting-02.jpg)
 
@@ -219,7 +219,7 @@ LichtFeld を選択すると、SfM・点群生成・Gaussian Splatting まで一
 
 ### 3.1 入出力ファイルの設定
 
-1.　**`sphresfm_to_realityscan.py`** を実行します  
+1.　**`spheresfm_to_realityscan.py`** を実行します  
 2.　以下のように各パスを指定します  
 
 | 項目 | 指定先 |
@@ -312,7 +312,7 @@ SfM の結果を RealityScan に取り込む準備が整いました。
 3.　`RealityScan` フォルダに任意のファイル名（例：`colmap`）で保存します  
 
 > **📝 ファイル上書きに関する注意**  
-> `sphresfm_to_realityscan.py` で出力された `cameras.txt`・`images.txt`・`points3D.txt` は上書きされます。上書きしても問題はありませんが、点群再生成前の COLMAP ファイルを保存しておきたい場合は、事前に別のフォルダに退避してください。
+> `spheresfm_to_realityscan.py` で出力された `cameras.txt`・`images.txt`・`points3D.txt` は上書きされます。上書きしても問題はありませんが、点群再生成前の COLMAP ファイルを保存しておきたい場合は、事前に別のフォルダに退避してください。
 
 4.　**Export Dialog** で **Export images** を `No` に設定します  
 5.　**Export transformation settings → Scene transformation** を開き、Rotationを以下のように設定します  

@@ -159,10 +159,10 @@ Selecting LichtFeld will run SfM, point cloud generation, and Gaussian Splatting
 My preferred settings are:
 
 - **Training Method**: `No Training`
-- **SfM**: `SphreSFM GUT`
+- **SfM**: `SphereSFM GUT`
 
 > **⚠️ Difference from the Basic Workflow**  
-> The Basic Workflow uses `SphreSFM`, but this article uses **`SphreSFM GUT`**. Please make sure to select the correct one.
+> The Basic Workflow uses `SphereSFM`, but this article uses **`SphereSFM GUT`**. Please make sure to select the correct one.
 
 ![Alignment Settings Screen](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/013-AlignmentSetting-02.jpg)
 
@@ -219,7 +219,7 @@ This is the key step in this article. The SfM results are imported into RealityS
 
 ### 3.1 Input/Output File Configuration
 
-1.　Run **`sphresfm_to_realityscan.py`**  
+1.　Run **`spheresfm_to_realityscan.py`**  
 2.　Specify each path as follows:  
 
 | Item | Target |
@@ -312,7 +312,7 @@ When processing is complete, the regenerated point cloud will be displayed.
 3.　Save to the `RealityScan` folder with any file name (e.g., `colmap`)  
 
 > **📝 Note on File Overwriting**  
-> The `cameras.txt`, `images.txt`, and `points3D.txt` output by `sphresfm_to_realityscan.py` will be overwritten. This is fine, but if you want to keep the COLMAP files from before regeneration, move them to a separate folder beforehand.
+> The `cameras.txt`, `images.txt`, and `points3D.txt` output by `spheresfm_to_realityscan.py` will be overwritten. This is fine, but if you want to keep the COLMAP files from before regeneration, move them to a separate folder beforehand.
 
 4.　In the **Export Dialog**, set **Export images** to `No`  
 5.　Open **Export transformation settings → Scene transformation** and set the Rotation as follows:
