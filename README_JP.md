@@ -9,7 +9,8 @@ A tool for converting 360° equirectangular image-based SfM/NeRF results into Re
 
 本リポジトリを取得するには、以下のいずれかの方法を使用してください。
 
-- **ZIP でダウンロード**：GitHub ページ上部の **Code → Download ZIP** をクリックし、任意のフォルダに展開します。
+- **ZIP でダウンロード**：GitHub ページ上部の **Code → Download ZIP** をクリックし、任意のフォルダに展開します。  
+  or  
 - **Git でクローン**：GitHub クライアントアプリや以下のコマンドでリポジトリをクローンします。
 
 ```
