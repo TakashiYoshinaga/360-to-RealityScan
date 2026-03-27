@@ -244,6 +244,9 @@ The default settings are generally fine.
 | Pitch Angles | Setting to `0` extracts only the vertically centered region of the Equirectangular image |
 | Overlap Rate | Overlap ratio between images. Default is fine; setting to `0` extracts only the side faces of the Cube Map |
 
+> **💡 Note on Pitch Angles**  
+> There's no need to limit extraction to the horizontal direction only. Depending on the scene, adding upward and downward views can improve the quality of the Gaussian Splatting output. For example, if the floor or ceiling has distinctive textures or patterns, try a setting like `-30,0,30` to include tilted angles.
+
 ### 3.3 Running the Conversion
 
 Click **Start Conversion** to start the conversion.  
