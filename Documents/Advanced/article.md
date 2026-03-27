@@ -220,6 +220,11 @@ LichtFeld を選択すると、SfM・点群生成・Gaussian Splatting まで一
 ### 3.1 入出力ファイルの設定
 
 1.　**`spheresfm_to_realityscan.py`** を実行します  
+
+> **📝 補足**  
+> Python スクリプトの取得方法および実行方法については、以下のリポジトリの README を参照してください。  
+> https://github.com/TakashiYoshinaga/360-to-RealityScan
+
 2.　以下のように各パスを指定します  
 
 | 項目 | 指定先 |

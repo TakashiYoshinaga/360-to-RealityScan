@@ -81,6 +81,9 @@ https://www.anaconda.com/download
 cd C:\path\to\360-to-RealityScan
 ```
 
+> **💡 ヒント**  
+> `cd`（スペースあり）と入力した後、`360-to-RealityScan` フォルダをターミナル画面にドラッグ＆ドロップしても、パスを自動入力できます。
+
 2. スクリプトを実行します
 
 ```

@@ -81,6 +81,9 @@ https://www.anaconda.com/download
 cd C:\path\to\360-to-RealityScan
 ```
 
+> **💡 Tip**  
+> You can also type `cd` followed by a space and then drag and drop the `360-to-RealityScan` folder into the terminal window to fill in the path automatically.
+
 2. Run the script
 
 ```

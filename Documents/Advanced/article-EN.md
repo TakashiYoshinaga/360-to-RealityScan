@@ -220,6 +220,11 @@ This is the key step in this article. The SfM results are imported into RealityS
 ### 3.1 Input/Output File Configuration
 
 1.　Run **`spheresfm_to_realityscan.py`**  
+
+> **📝 Note**  
+> For instructions on how to obtain and run the Python script, refer to the README in the repository below.  
+> https://github.com/TakashiYoshinaga/360-to-RealityScan
+
 2.　Specify each path as follows:  
 
 | Item | Target |
