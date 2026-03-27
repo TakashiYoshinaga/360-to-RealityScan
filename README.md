@@ -9,7 +9,8 @@ A tool for converting 360° equirectangular image-based SfM/NeRF results into Re
 
 Choose one of the following methods to get this repository:
 
-- **Download ZIP**: Click **Code → Download ZIP** at the top of the GitHub page and extract it to any folder.
+- **Download ZIP**: Click **Code → Download ZIP** at the top of the GitHub page and extract it to any folder.  
+  or
 - **Clone with Git**: Use the GitHub desktop app or run the following command:
 
 ```
@@ -119,7 +120,7 @@ The defaults work fine in most cases.
 
 ### Run Conversion
 
-Click **Start Conversion** (Start Conversion) to begin.
+Click **Start Conversion** to begin.
 
 When conversion completes, the following files and folders will be created in the output folder (e.g. `RealityScan`):
 
