@@ -246,7 +246,7 @@ LichtFeld を選択すると、SfM・点群生成・Gaussian Splatting まで一
 
 ### 3.3 変換の実行
 
-**変換開始** をクリックして変換を実行します。  
+**Start Conversion** をクリックして変換を実行します。  
 完了すると以下のような画面が表示されます。
 
 ![SphereSfM Converter の変換完了画面](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/014-SphereSfMConverter.jpg)

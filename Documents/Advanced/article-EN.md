@@ -246,7 +246,7 @@ The default settings are generally fine.
 
 ### 3.3 Running the Conversion
 
-Click **Convert** to start the conversion.  
+Click **Start Conversion** to start the conversion.  
 When complete, you'll see the following screen:
 
 ![SphereSfM Converter Completion Screen](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/014-SphereSfMConverter.jpg)

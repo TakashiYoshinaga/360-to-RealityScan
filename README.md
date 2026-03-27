@@ -119,7 +119,7 @@ The defaults work fine in most cases.
 
 ### Run Conversion
 
-Click **変換開始** (Start Conversion) to begin.
+Click **Start Conversion** (Start Conversion) to begin.
 
 When conversion completes, the following files and folders will be created in the output folder (e.g. `RealityScan`):
 
