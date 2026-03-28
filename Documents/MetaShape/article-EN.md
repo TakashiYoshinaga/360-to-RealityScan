@@ -59,7 +59,7 @@ Gaussian Splatting generally follows these steps:
 | 4 | **Gaussian Splatting** | Generate a 3D Gaussian Splatting model from the point cloud |
 
 In this article, **MetaShape** is used for Steps 2 and 3.  
-Additionally, before Step 4, the MetaShape results are converted into a format readable by another tool, and point cloud regeneration is performed.
+Additionally, before Step 4, the MetaShape results are converted into a format readable by integration tools such as LichtFeld Studio or RealityCapture, and point cloud regeneration is performed.
 
 ---
 

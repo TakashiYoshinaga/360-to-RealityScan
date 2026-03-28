@@ -4,7 +4,7 @@
 
 屋外などの広範囲なシーンを **Gaussian Splatting** で再現する手法が注目を集めています。SNS やブログで関連情報を見かける機会も増えてきましたが、情報が各所に散らばっており、効率的なワークフローを構築するのは容易ではありません。
 
-これまでの記事[（基本手順編）](../Basic/article.md)、[クオリティ向上編](../Advanced/article.md)では、筆者が趣味でのGaussian Splattingで運用している、基本的に無料で使えるツールだけで構成したワークフローをご紹介しました。今回は、比較的人気がある有料のSfMツールであるMetaShapeとその後の追加手順を用いたワークフローをご紹介します。
+これまでの記事[基本手順編](../Basic/article.md)、[クオリティ向上編](../Advanced/article.md)では、筆者が趣味でのGaussian Splattingで運用している、基本的に無料で使えるツールだけで構成したワークフローをご紹介しました。今回は、比較的人気がある有料のSfMツールであるMetaShapeとその後の追加手順を用いたワークフローをご紹介します。
 
 > **💡 本記事を読む前に**  
 > 本記事では Python スクリプトを使用するステップが含まれます。Gaussian Splatting が初めての方や Python に不慣れな方は、まず無料ツールを使った「[基本手順編](../Basic/article.md)」で全体の流れを掴んでから挑戦することをおすすめします。
@@ -59,7 +59,7 @@ Gaussian Splatting では、一般的に以下のステップを踏みます。
 | 4 | **Gaussian Splatting** | 点群をもとに 3D Gaussian Splatting モデルを生成する |
 
 本記事では、Step 2とStep3にMetaShapeを使用します。
-さらに、Step 4の前にMetaShapeの結果をほかのツールで読める形式に変換し、点群の再生成を行います。
+さらに、Step 4の前にMetaShapeの結果をLichtFeld StudioやRealityCaptureなどの連携ツールで読める形式に変換し、点群の再生成を行います。
 
 ---
 
