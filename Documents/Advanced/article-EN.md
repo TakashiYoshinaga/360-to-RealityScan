@@ -4,7 +4,7 @@
 
 Gaussian Splatting has been gaining attention as a method for recreating wide outdoor scenes in 3D. While related information is increasingly appearing on social media and blogs, it is scattered across many sources, making it difficult to build an efficient workflow.
 
-In the [previous article (Basic Workflow)](../Basic/article-EN.md), I introduced the minimum viable workflow I use for Gaussian Splatting as a hobby, built entirely around free-to-use tools. This time, I'll explain how to further improve quality with just a **few small tweaks** to that workflow.
+In the [previous article (Basic Workflow)](../Basic/article-EN.md), I introduced the minimum viable workflow I use for Gaussian Splatting as a hobby, built entirely around free-to-use tools. This time, I'll explain how to further improve quality with just a **few small tweaks** to that workflow. Additionally, for a workflow using the paid software Agisoft Metashape, please refer to the "[Metashape Edition](../MetaShape/article-EN.md)" if you are interested.
 
 > **💡 Before You Start**  
 > This article includes a step that involves running a Python script. If you're new to Gaussian Splatting or unfamiliar with Python, I recommend working through the [Basic Workflow](../Basic/article-EN.md) first to get a feel for the overall process before tackling this one.
@@ -99,7 +99,7 @@ If you're using an Insta360, export it using **Insta360 Studio** (the PC applica
 > - Vibration Reduction
 
 > **💡 Tip**  
-> With stabilization ON, the camera automatically corrects for tilt. Since this workflow assumes the camera is held vertically, stabilization ON is recommended (note that minor distortion may appear at the front/rear camera stitch line).
+> With stabilization ON, the camera automatically corrects for tilt. Strictly speaking, the slight distortion introduced by this correction can become a source of noise in later processing — but if you just want to get started without worrying about that, turning stabilization ON is totally fine.
 
 ![Stabilization Settings Screen](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/000-stabilization.jpg)
 

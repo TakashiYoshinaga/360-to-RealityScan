@@ -6,7 +6,7 @@ Gaussian Splatting has been gaining attention as a method for recreating wide ou
 
 In this article, I'll introduce the **minimum viable workflow** I personally use for Gaussian Splatting as a hobby.  
  All tools covered here are **free to use** (with some optional paid features), making it easy to get started even if you're new to Gaussian Splatting.  
-For techniques to further improve quality, please refer to the companion article "[Quality Improvement Edition](../Advanced/article-EN.md)".
+For techniques to further improve quality, please refer to the companion article "[Quality Improvement Edition](../Advanced/article-EN.md)". Additionally, I have introduced another workflow using the paid software Agisoft Metashape in the "[Metashape Edition](../MetaShape/article-EN.md)". If you are interested, please check that out as well!
 
 ### Sample Output from This Workflow
 

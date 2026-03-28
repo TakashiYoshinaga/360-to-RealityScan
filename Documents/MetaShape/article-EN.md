@@ -80,7 +80,7 @@ If you're using an Insta360, export it using **Insta360 Studio** (the PC applica
 > - Vibration Reduction
 
 > **💡 Tip**  
-> With stabilization ON, the camera automatically corrects for tilt. Since this workflow assumes the camera is held vertically, stabilization ON is recommended (note that minor distortion may appear at the front/rear camera stitch line).
+> With stabilization ON, the camera automatically corrects for tilt. Strictly speaking, the slight distortion introduced by this correction can become a source of noise in later processing — but if you just want to get started without worrying about that, turning stabilization ON is totally fine.
 
 ![Stabilization Settings Screen](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/000-stabilization.jpg)
 
