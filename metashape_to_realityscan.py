@@ -774,13 +774,21 @@ def execute_conversion(
             C = img_data["world_pos"]
             R = img_data["R_world"].T
 
+            # Apply 180° rotation around Z-axis (same as COLMAP extrinsics)
+            R_z180 = np.array(
+                [[-1, 0, 0], [0, -1, 0], [0, 0, 1]],
+                dtype=np.float64,
+            )
+            R_rotated = R @ R_z180
+            C_rotated = R_z180 @ C
+
             R_rc = np.zeros((3, 3), dtype=np.float64)
-            R_rc[:, 0] = R[:, 0]
-            R_rc[:, 1] = R[:, 2]
-            R_rc[:, 2] = -R[:, 1]
-            
+            R_rc[:, 0] = R_rotated[:, 0]
+            R_rc[:, 1] = R_rotated[:, 2]
+            R_rc[:, 2] = -R_rotated[:, 1]
+
             rot_str = " ".join(f"{x}" for x in R_rc.flatten())
-            pos_str = f"{C[0]} {C[2]} {-C[1]}"
+            pos_str = f"{C_rotated[0]} {C_rotated[2]} {-C_rotated[1]}"
 
             xmp_content = f"""<x:xmpmeta xmlns:x="adobe:ns:meta/">
   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
