@@ -230,7 +230,7 @@ If everything looks correct, save the generated data.
 ![Export Points](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/035-ExportPoints.jpg)
 
 Once the export is complete, close MetaShape.  
-At this point, the processing on the 360° Gaussian side is also complete — click **Abort** in the MetaShape usage guide window to close it.  
+In this article, the processing on the 360° Gaussian side is also complete at this point — click **Abort** in the MetaShape usage guide window to close it.  
 Also click **Stop** in the main 360° Gaussian window to end processing.
 
 ---
@@ -437,7 +437,7 @@ The exported data can be used with tools like [SuperSplat Editor](https://supers
 In this article, I introduced a workflow using **MetaShape**, a commercial SfM software.  
 MetaShape is a paid tool, but it comes with a 30-day free trial, so feel free to give it a try if you're interested.
 
-**SphereSfM**, covered in previous articles, has an edge over MetaShape in terms of ease of use and processing speed, but MetaShape offers significantly more fine-grained parameter control for SfM. It's difficult to say definitively which is superior — the best choice depends on your use case, goals, and the level of accuracy you need.
+**SphereSfM**, covered in previous articles, offers significantly more fine-grained parameter control for SfM (such as alignment iterations). On the other hand, **MetaShape** provides an easy-to-use windowed interface, giving it an edge in terms of handiness and processing speed. It's difficult to say definitively which is superior — the best choice depends on your use case, goals, and the level of accuracy you need.
 
 In that regard, **360° Gaussian** makes it easy to switch between processing tools within the same application to suit your needs. I find it to be an extremely powerful tool for comparing and evaluating different methods.
 
