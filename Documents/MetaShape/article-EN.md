@@ -1,10 +1,10 @@
-# 360° Image Gaussian Splatting with MetaShape
+# 360° Image Gaussian Splatting with Metashape
 
 ## Introduction
 
 Gaussian Splatting is gaining attention as a method for recreating wide outdoor scenes in 3D. While related information is increasingly appearing on social media and blogs, it is scattered across many sources, making it difficult to build an efficient workflow.
 
-In the previous articles — [Basic Workflow](../Basic/article-EN.md) and [Quality Improvement Edition](../Advanced/article-EN.md) — I introduced a workflow built entirely around free-to-use tools that I personally use for Gaussian Splatting as a hobby. This time, I'll introduce a workflow using **MetaShape**, a relatively popular paid SfM tool, along with additional post-processing steps.
+In the previous articles — [Basic Workflow](../Basic/article-EN.md) and [Quality Improvement Edition](../Advanced/article-EN.md) — I introduced a workflow built entirely around free-to-use tools that I personally use for Gaussian Splatting as a hobby. This time, I'll introduce a workflow using **Metashape (Standard Eddition)**, a relatively popular paid SfM tool, along with additional post-processing steps.
 
 > **💡 Before You Start**  
 > This article includes a step that involves running a Python script. If you're new to Gaussian Splatting or unfamiliar with Python, I recommend working through the free-tools-based [Basic Workflow](../Basic/article-EN.md) first to understand the overall process before tackling this one.
@@ -36,9 +36,9 @@ In the previous articles — [Basic Workflow](../Basic/article-EN.md) and [Quali
 |----------|---------|
 | [LichtFeld Studio v0.5.0](https://lichtfeld.io/) | GUI tool for 3D Gaussian Splatting |
 | [360° Gaussian v1.3.0](https://laskosvirtuals.gumroad.com/l/360gaussian) | Tool to automate each step of Gaussian Splatting |
-| [MetaShape Standard](https://oakcorp.net/agisoft/standard/) | Used for SfM and point cloud generation |
+| [Metashape (Standard Eddition)](https://oakcorp.net/agisoft/standard/) | Used for SfM and point cloud generation |
 | [RealityScan](https://www.realityscan.com/) | Used for point cloud regeneration |
-| [360-to-RealityScan](https://github.com/TakashiYoshinaga/360-to-RealityScan) | Converts MetaShape results into a format readable by RealityScan (.xmp) |
+| [360-to-RealityScan](https://github.com/TakashiYoshinaga/360-to-RealityScan) | Converts Metashape results into a format readable by RealityScan (.xmp) |
 
 ### Other
 
@@ -58,8 +58,8 @@ Gaussian Splatting generally follows these steps:
 | 3 | **Point Cloud Generation** | Generate a point cloud based on the camera positions from SfM |
 | 4 | **Gaussian Splatting** | Generate a 3D Gaussian Splatting model from the point cloud |
 
-In this article, **MetaShape** is used for Steps 2 and 3.  
-Additionally, before Step 4, the MetaShape results are converted into a format readable by integration tools such as LichtFeld Studio or RealityCapture, and point cloud regeneration is performed.
+In this article, **Metashape** is used for Steps 2 and 3.  
+Additionally, before Step 4, the Metashape results are converted into a format readable by integration tools such as LichtFeld Studio or RealityCapture, and point cloud regeneration is performed.
 
 ---
 
@@ -147,7 +147,7 @@ Since this article uses LichtFeld Studio for the final processing, configure the
 ### 2.4 Frame Extraction
 
 Click **Start** to extract frames at the interval configured earlier.  
-When extraction is complete, a screen explaining the MetaShape alignment workflow will appear. It serves as a useful reference, so there is no need to close it yet.
+When extraction is complete, a screen explaining the Metashape alignment workflow will appear. It serves as a useful reference, so there is no need to close it yet.
 
 ![Extraction Complete Screen](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/030-MetaShapeALignmentGuide.jpg)
 
@@ -176,9 +176,9 @@ In preparation for the next step, create a **`RealityScan`** folder at the same 
        └── 📁 RealityScan　← folder you just created
 ```
 
-### 2.5 Importing Data into MetaShape
+### 2.5 Importing Data into Metashape
 
-1.　Launch **MetaShape**  
+1.　Launch **Metashape**  
 2.　Click **Workflow** in the menu bar and select **Add Folder**  
 3.　Select the **`frames`** folder inside the folder generated earlier  
 4.　Click **Tools** in the menu bar and select **Camera Calibration**  
@@ -229,15 +229,15 @@ If everything looks correct, save the generated data.
 
 ![Export Points](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/035-ExportPoints.jpg)
 
-Once the export is complete, close MetaShape.  
-In this article, the processing on the 360° Gaussian side is also complete at this point — click **Abort** in the MetaShape usage guide window to close it.  
+Once the export is complete, close Metashape.  
+In this article, the processing on the 360° Gaussian side is also complete at this point — click **Abort** in the Metashape usage guide window to close it.  
 Also click **Stop** in the main 360° Gaussian window to end processing.
 
 ---
 
 ## Step 3. Image Splitting and Point Cloud Regeneration
 
-In this step, the SfM results obtained from MetaShape are split into images from multiple viewpoints using a pinhole camera model. The data is then imported into RealityScan, which performs point cloud regeneration based on the split images.
+In this step, the SfM results obtained from Metashape are split into images from multiple viewpoints using a pinhole camera model. The data is then imported into RealityScan, which performs point cloud regeneration based on the split images.
 
 ### 3.1 Input/Output File Configuration
 
@@ -279,7 +279,7 @@ The default settings are generally fine.
 Click **Start Conversion** to start the conversion.  
 When complete, you'll see the following screen:
 
-![MetaShape to RealityScan](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/036-MetaShapeConverter.jpg)
+![Metashape to RealityScan](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/036-MetaShapeConverter.jpg)
 
 The SfM results are now ready to be imported into RealityScan.
 
@@ -434,10 +434,10 @@ The exported data can be used with tools like [SuperSplat Editor](https://supers
 
 ## Summary
 
-In this article, I introduced a workflow using **MetaShape**, a commercial SfM software.  
-MetaShape is a paid tool, but it comes with a 30-day free trial, so feel free to give it a try if you're interested.
+In this article, I introduced a workflow using **Metashape**, a commercial SfM software.  
+Metashape is a paid tool, but it comes with a 30-day free trial, so feel free to give it a try if you're interested.
 
-**SphereSfM**, covered in previous articles, offers significantly more fine-grained parameter control for SfM (such as alignment iterations). On the other hand, **MetaShape** provides an easy-to-use windowed interface, giving it an edge in terms of handiness and processing speed. It's difficult to say definitively which is superior — the best choice depends on your use case, goals, and the level of accuracy you need.
+**SphereSfM**, covered in previous articles, offers significantly more fine-grained parameter control for SfM (such as alignment iterations). On the other hand, **Metashape** provides an easy-to-use windowed interface, giving it an edge in terms of handiness and processing speed. It's difficult to say definitively which is superior — the best choice depends on your use case, goals, and the level of accuracy you need.
 
 In that regard, **360° Gaussian** makes it easy to switch between processing tools within the same application to suit your needs. I find it to be an extremely powerful tool for comparing and evaluating different methods.
 
