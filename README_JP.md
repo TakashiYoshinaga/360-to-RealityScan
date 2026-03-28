@@ -143,5 +143,5 @@ RealityScan/
 
 Gaussian Splatting のワークフロー全体への組み込み方については、以下の記事を参照してください。
 
-- [基本手順編](Documents/Basic/article.md)
-- [クオリティ改善編](Documents/Advanced/article.md)
+- [SphereSfM](Documents/Advanced/article.md)
+- [MetaShape](Documents/MetaShape/article.md)

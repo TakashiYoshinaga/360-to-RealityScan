@@ -143,5 +143,5 @@ RealityScan/
 
 For instructions on integrating this tool into a full Gaussian Splatting workflow, refer to the articles below:
 
-- [Basic Workflow](Documents/Basic/article-EN.md)
-- [Quality Improvement](Documents/Advanced/article-EN.md)
+- [SphereSfM](Documents/Advanced/article-EN.md)
+- [MetaShape](Documents/MetaShape/article-EN.md)
