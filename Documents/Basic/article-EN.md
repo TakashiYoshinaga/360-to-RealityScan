@@ -8,6 +8,12 @@ In this article, I'll introduce the **minimum viable workflow** I personally use
  All tools covered here are **free to use** (with some optional paid features), making it easy to get started even if you're new to Gaussian Splatting.  
 For techniques to further improve quality, please refer to the companion article "[Quality Improvement Edition](../Advanced/article-EN.md)". Additionally, I have introduced another workflow using the paid software Agisoft Metashape in the "[Metashape Edition](../MetaShape/article-EN.md)". If you are interested, please check that out as well!
 
+> **📝 A Note on SfM Tool Speed**
+>
+> You may have seen comments like "free tools are slow because they use COLMAP's CameraRig approach" — so let me clarify. **SphereSfM**, used in this article, works on a fundamentally different principle from CameraRig. By **processing ERP images directly with a spherical camera model**, it avoids the matching cost across 6 cubemap faces, which translates to a meaningful speed advantage.
+>
+> Paid tools like Metashape do have their advantages, of course. But if you're just getting started with Gaussian Splatting, this free toolchain is well worth trying. When you're ready to push quality further, check out the Metashape edition in a separate article.
+
 ### Sample Output from This Workflow
 
 [![Sample Video](https://img.youtube.com/vi/n-NL1UisVF4/0.jpg)](https://www.youtube.com/watch?v=n-NL1UisVF4)
