@@ -443,5 +443,15 @@ In that regard, **360° Gaussian** makes it easy to switch between processing to
 
 I hope you'll use this article's workflow as a foundation, add your own personal touches, and push the quality of your Gaussian Splatting results even further.
 
+### Examples (Comparison)
+
+For reference, here is a comparison of the results generated using different SfM tools. You can view the actual 3D scenes in your browser:
+
+- **[Processed with SphereSfM (Previous Article)](https://superspl.at/scene/c28be98f)**
+- **[Processed with Metashape (This Article)](https://superspl.at/scene/adaae718)**
+
+<br>
+
 > **💡 About the Nightly Build**  
 > This article covers the release version workflow, but the Nightly Build of LichtFeld Studio includes a mode called **LFT** (a hybrid of IGS+ and MCMC). Personally, I recommend it over MCMC, so if you're interested, definitely give it a try.
+
