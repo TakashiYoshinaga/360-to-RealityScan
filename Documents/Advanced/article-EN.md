@@ -11,7 +11,7 @@ In the [previous article (Basic Workflow)](../Basic/article-EN.md), I introduced
 
 > **📝 A Note on SfM Tool Speed**
 >
-> You may have seen comments like "free tools are slow because they use COLMAP's CameraRig approach" — so let me clarify. **SphereSfM**, used in this article, works on a fundamentally different principle from CameraRig. By **processing ERP images directly with a spherical camera model**, it avoids the matching cost across 6 cubemap faces, which translates to a meaningful speed advantage.
+> You may have seen comments like "free tools are slow because they use COLMAP's CameraRig approach" — so let me clarify. **SphereSfM**, used in this article, works on a fundamentally different principle from CameraRig. By **processing Equirectangular images directly with a spherical camera model**, it avoids the matching cost across 6 cubemap faces, which translates to a meaningful speed advantage.
 >
 > Paid tools like Metashape do have their advantages, of course. But if you're just getting started with Gaussian Splatting, this free toolchain is well worth trying. When you're ready to push quality further, check out the Metashape edition in a separate article.
 
