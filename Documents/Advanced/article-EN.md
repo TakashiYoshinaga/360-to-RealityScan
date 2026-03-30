@@ -181,8 +181,10 @@ My preferred settings are:
    Other settings can be left at their defaults.
 
 > **💡 About Matcher Selection**  
-> Choosing `exhaustive` over `sequential` tends to improve **Loop Closure** accuracy. For even better accuracy, you can tighten the conditions as shown in the image below, but note that this can significantly increase processing time or cause SfM to fail.  
-> The author's approach is to set **Iterations and Refinements high** (values in the High range) while **keeping MinInliers relatively low**. Raising Iterations and Refinements increases the number of RANSAC sampling attempts and optimization passes, making it easier to find the correct geometry even for pairs with few common feature points (low inlier ratio). Keeping MinInliers low allows "weak matches" with fewer common features to pass geometric verification, reducing the chance of missing pairs that could serve as loop closure anchors. In short, the strategy is "**verify thoroughly (high Iterations/Refinements), but don't discard the results (low MinInliers)**" — designed to capture as many loop closures as possible.
+> Choosing `exhaustive` instead of `sequential` tends to improve the accuracy of **Loop Closure**, which correctly reconnects images near the start and end points of a shoot. Although this can significantly increase processing time or cause SfM to fail, you can fine-tune the parameters to further increase accuracy, as shown in the image below.  
+> The author's recommended configuration strategy is to keep **Iterations and Refinements high** (values classified as High) while keeping **MinInliers low**.  
+> Increasing Iterations and Refinements makes it easier to find the correct geometry even for difficult image pairs with a low inlier ratio. On the other hand, keeping MinInliers low allows pairs with few feature points—often judged as "weak matches"—to pass verification more easily, ensuring you don't miss the slight clues needed for loop connections.  
+> In short, the combination of "**verify thoroughly (High Iterations/Refinements), and don't discard the results (Low MinInliers)**" is designed to maximize the chances of successful Loop Closure.
 
 ![SphereSFM Advanced Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02_2.jpg)
 
