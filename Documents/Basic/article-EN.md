@@ -148,7 +148,7 @@ My preferred settings are:
 > Choosing `exhaustive` over `sequential` tends to improve **Loop Closure** accuracy. For even better accuracy, you can tighten the conditions as shown in the image below, but note that this can significantly increase processing time or cause SfM to fail.  
 > The author's approach is to set **Iterations and Refinements high** (values in the High range) while **keeping MinInliers relatively low**. Raising Iterations and Refinements increases the number of RANSAC sampling attempts and optimization passes, making it easier to find the correct geometry even for pairs with few common feature points (low inlier ratio). Keeping MinInliers low allows "weak matches" with fewer common features to pass geometric verification, reducing the chance of missing pairs that could serve as loop closure anchors. In short, the strategy is "**verify thoroughly (high Iterations/Refinements), but don't discard the results (low MinInliers)**" — designed to capture as many loop closures as possible.
 
-![SphereSFM Advanced Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02_1.jpg)
+![SphereSFM Advanced Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02_2.jpg)
 
 ### 2.4 Running SfM
 
