@@ -145,7 +145,8 @@ LichtFeld を選択すると、SfM・点群生成・Gaussian Splatting まで一
    その他の設定はデフォルトのままで問題ありません。
 
 > **💡 Matcher の選択について**  
-> `sequential` の代わりに `exhaustive` を選択すると、**Loop Closure** の精度が向上しやすくなります。さらに精度を高めたい場合は、下記画像を参考に条件を厳しめに設定することも可能ですが、処理時間が大幅に増加したり SfM が失敗するリスクもあるためご注意ください。
+> `sequential` の代わりに `exhaustive` を選択すると、**Loop Closure** の精度が向上しやすくなります。さらに精度を高めたい場合は、下記画像を参考に条件を厳しめに設定することも可能ですが、処理時間が大幅に増加したり SfM が失敗するリスクもあるためご注意ください。  
+> 筆者が試した設定の方針としては、**Iterations・Refinements は高め**（High に分類される値）に設定し、**MinInliers はあまり高くしない**というものです。Iterations と Refinements を高くすると、RANSAC のサンプリング試行と最適化が多く行われるため、共通特徴点が少ない（インライア率が低い）ペアに対しても正しいジオメトリを見つけやすくなります。一方 MinInliers を低めに保つと、特徴点の共通数が少ない「弱いマッチ」もジオメトリ検証を通過しやすくなり、ループ接続の糸口となるペアを取りこぼしにくくなります。つまり「**丁寧に検証して（Iterations/Refinements 高め）、その結果は捨てない（MinInliers 低め）**」という組み合わせで、ループクロージャを最大限に拾いにいく方針です。
 
 ![SphereSFM の詳細設定例](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02.jpg)
 
