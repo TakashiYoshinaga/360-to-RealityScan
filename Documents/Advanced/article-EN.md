@@ -186,7 +186,7 @@ My preferred settings are:
 > Increasing Iterations and Refinements makes it easier to find the correct geometry even for difficult image pairs with a low inlier ratio. On the other hand, keeping MinInliers low allows pairs with few feature points—often judged as "weak matches"—to pass verification more easily, ensuring you don't miss the slight clues needed for loop connections.  
 > In short, the combination of "**verify thoroughly (High Iterations/Refinements), and don't discard the results (Low MinInliers)**" is designed to maximize the chances of successful Loop Closure.
 
-![SphereSFM Advanced Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02_2.jpg)
+![SphereSFM Advanced Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02_3.jpg)
 
 ### 2.4 Running SfM
 

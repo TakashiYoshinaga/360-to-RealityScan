@@ -150,7 +150,7 @@ LichtFeld を選択すると、SfM・点群生成・Gaussian Splatting まで一
 > Iterations と Refinements を高くすると、インライア率が低い難しいペアに対しても正しい位置関係（ジオメトリ）を見つけやすくなります。一方で MinInliers を低めに保つことで、特徴点が少なく「弱いマッチ」と判定されがちなペアも検証を通過しやすくなり、ループ接続のわずかな糸口を取りこぼしにくくなります。  
 > つまり、「**丁寧に検証して（Iterations/Refinements 高め）、その結果は捨てない（MinInliers 低め）**」という組み合わせによって、Loop Closure を最大限に引き出す狙いがあります。
 
-![SphereSFM の詳細設定例](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02_2.jpg)
+![SphereSFM の詳細設定例](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02_3.jpg)
 
 ### 2.4 SfM の実行
 
