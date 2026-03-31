@@ -178,8 +178,12 @@ My preferred settings are:
 ![SphereSFM Preset Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/004-SphreSfM_Setting-01.jpg)
 
 4.　Select `exhaustive` for **Matcher**  
-   Other settings can be left at their defaults.
+Other settings can be left at their defaults.  
+As an example, here are the settings the author typically uses for shooting relatively large areas:
 
+![SphereSFM Advanced Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02_3.jpg)
+
+<br>
 <details>
 <summary>💡 Advanced Matcher Parameter Tuning for Large-Scale Scans (Click to expand)</summary>
 
@@ -201,9 +205,6 @@ In short, for large-scale scans, the combination of "**verify thoroughly (High I
 </details>
 <br>  
 
-As an example, here are the settings the author typically uses for shooting relatively large areas:
-
-![SphereSFM Advanced Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02_3.jpg)
 
 ### 2.4 Running SfM
 

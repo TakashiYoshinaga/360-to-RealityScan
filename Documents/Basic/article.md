@@ -142,8 +142,12 @@ LichtFeld を選択すると、SfM・点群生成・Gaussian Splatting まで一
 ![SphereSFM の Preset 設定](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/004-SphreSfM_Setting-01.jpg)
 
 4.　**Matcher** で `exhaustive` を選択します  
-   その他の設定はデフォルトのままで問題ありません。
+その他の設定はデフォルトのままで問題ありません。  
+設定の一例として、筆者が比較的広域の撮影で使用している設定を以下に示します。
 
+![SphereSFM の詳細設定例](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02_3.jpg)
+
+<br>
 <details>
 <summary>💡 広域スキャン向けの Matcher 詳細パラメータ調整について（開く）</summary>
 
@@ -164,9 +168,7 @@ LichtFeld を選択すると、SfM・点群生成・Gaussian Splatting まで一
 
 </details>  
 <br>  
-設定の一例として、筆者が比較的広域の撮影で使用している設定を以下に示します。
 
-![SphereSFM の詳細設定例](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02_3.jpg)
 
 ### 2.4 SfM の実行
 
