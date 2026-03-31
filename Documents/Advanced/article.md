@@ -200,7 +200,6 @@ LichtFeld を選択すると、SfM・点群生成・Gaussian Splatting まで一
 
 </details>
 <br>  
-<br>
 設定の一例として、筆者が比較的広域の撮影で使用している設定を以下に示します。
 
 ![SphereSFM の詳細設定例](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02_3.jpg)

@@ -164,7 +164,6 @@ In short, for large-scale scans, the combination of "**verify thoroughly (High I
 
 </details>
 <br>  
-<br>
 As an example, here are the settings the author typically uses for shooting relatively large areas:
 
 ![SphereSFM Advanced Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02_3.jpg)
