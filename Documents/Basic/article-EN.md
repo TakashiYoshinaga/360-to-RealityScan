@@ -144,11 +144,28 @@ My preferred settings are:
 4.　Select `exhaustive` for **Matcher**    
    Other settings can be left at their defaults.
 
-> **💡 About Matcher Selection**  
-> Choosing `exhaustive` instead of `sequential` tends to improve the accuracy of **Loop Closure**, which correctly reconnects images near the start and end points of a shoot. Although this can significantly increase processing time or cause SfM to fail, you can fine-tune the parameters to further increase accuracy, as shown in the image below.  
-> The author's recommended configuration strategy is to keep **Iterations and Refinements high** (values classified as High) while keeping **MinInliers low**.  
-> Increasing Iterations and Refinements makes it easier to find the correct geometry even for difficult image pairs with a low inlier ratio. On the other hand, keeping MinInliers low allows pairs with few feature points—often judged as "weak matches"—to pass verification more easily, ensuring you don't miss the slight clues needed for loop connections.  
-> In short, the combination of "**verify thoroughly (High Iterations/Refinements), and don't discard the results (Low MinInliers)**" is designed to maximize the chances of successful Loop Closure.
+<details>
+<summary>💡 Advanced Matcher Parameter Tuning for Large-Scale Scans (Click to expand)</summary>
+
+Choosing `exhaustive` instead of `sequential` tends to improve the accuracy of **Loop Closure**, which correctly reconnects images near the start and end points of a shoot, especially over large areas. Although this can significantly increase processing time or cause SfM to fail, you can fine-tune the parameters to further increase accuracy, as shown in the image below.
+
+The author's recommended configuration strategy is as follows:
+
+1. **Iterations(Global) and Refinements (Always High)**
+   - Setting these high makes it easier to find the correct geometry even for difficult image pairs with a low inlier ratio.
+2. **MinInliers (Minimum Inlier Count)**
+   - **Large-scale areas (Low)**: Keep this low. This allows pairs with few feature points—often judged as "weak matches"—to pass verification more easily, ensuring you don't miss the slight clues needed for loop connections.
+   - **(Note) Small areas (High)**: Since feature points match consistently across images, setting this intentionally higher ensures only "reliable matches" are adopted. This eliminates erroneous matches and results in higher accuracy.
+3. **Reprojection threshold**
+   - **Large-scale areas (Loose)**: Changes in lighting, weather, and perspective can cause major viewpoint differences between the start and end of a loop. If the threshold is strict here, sparse matches will be rejected, preventing the loop from closing (connecting). Therefore, easing the tolerance to match the scene's variability is the standard approach.
+   - **(Note) Small areas (Strict)**: Because viewpoint changes are minor and feature points are stable, you can afford to use a **stricter (tighter)** threshold. This helps eliminate noise and allows for higher precision camera pose estimation.
+
+In short, for large-scale scans, the combination of "**verify thoroughly (High Iterations(Global)/Refinements), don't discard the results (Low MinInliers), and ease the tolerance in response to spatial diversity (Loose Reprojection threshold)**" is designed to maximize the success rate of SfM.
+
+</details>
+<br>  
+<br>
+As an example, here are the settings the author typically uses for shooting relatively large areas:
 
 ![SphereSFM Advanced Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02_3.jpg)
 
