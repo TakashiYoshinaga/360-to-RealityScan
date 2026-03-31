@@ -132,7 +132,7 @@ For detailed usage, refer to the following videos:
 | Sharp frame extraction | Whether to prioritize less blurry images compared to adjacent frames |
 | Sharpness check range | E.g., `10` compares ±5 frames to select the sharpest image |
 
-![360° Gaussian Splitting Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/001-360GaussianUI-01.jpg)
+![360° Gaussian Splitting Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/001-360GaussianUI-01_2.jpg)
 
 ### 2.2 Image Masking (Optional)
 
