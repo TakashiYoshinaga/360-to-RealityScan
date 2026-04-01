@@ -145,7 +145,8 @@ My preferred settings are:
 Other settings can be left at their defaults.  
 As an example, here are the settings the author typically uses for shooting relatively large areas:
 
-![SphereSFM Advanced Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02_3.jpg)
+![SphereSFM Advanced Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02_3.jpg)  
+Note: This configuration may result in longer processing times. We recommend starting with the default settings first.  
 
 <br>
 <details>

@@ -179,9 +179,10 @@ LichtFeld を選択すると、SfM・点群生成・Gaussian Splatting まで一
 
 4.　**Matcher** で `exhaustive` を選択します  
 その他の設定はデフォルトのままで問題ありません。  
-設定の一例として、筆者が比較的広域の撮影で使用している設定を以下に示します。
+設定の一例として、筆者が比較的広域の撮影で使用している設定を以下に示します。  
 
-![SphereSFM の詳細設定例](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02_3.jpg)
+![SphereSFM の詳細設定例](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02_3.jpg)  
+※比較的時間がかかるパラメータ設定なのでまずはデフォルト設定で試してみましょう。  
 
 <br>
 <details>
