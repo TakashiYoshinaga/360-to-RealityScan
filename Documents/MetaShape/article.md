@@ -339,7 +339,7 @@ SfM の結果を RealityScan に取り込む準備が整いました。
 7.　**Export images** を `No` に設定します  
 8.　**OK** をクリックします  
 
-![COLMAP エクスポート設定](../Images/021-RealityScanUI-07_2.jpg)
+![COLMAP エクスポート設定](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/021-RealityScanUI-07_2.jpg)
 
 ---
 
@@ -352,7 +352,7 @@ SfM の結果を RealityScan に取り込む準備が整いました。
 3.　**Load DataSet** ダイアログが表示されたら、そのまま**Load** をクリックします
 
 ![LichtFeld Studio の起動画面](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/007-LichtFeldStudioUI-01.jpg)
-![Load DataSet ダイアログ](../Images/008-LoadDataset_2.jpg)
+![Load DataSet ダイアログ](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/008-LoadDataset_2.jpg)
 
 点群と画像が正しく読み込まれたことを確認してください。  
 カメラ画像の表示が不要な場合は、画面右側の **Rendering** タブにある **Camera Frustum** のチェックを外します。
@@ -385,7 +385,7 @@ Auto Maskerを使ってマスク画像を作成した場合のみ下記の設定
 - **Mask Mode** → `Ignore` に設定
 - **Use Alpha as Mask** → チェックを外す
 
-![トレーニング設定画面](../Images/010-TrainingSettings_2.jpg)
+![トレーニング設定画面](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/010-TrainingSettings_2.jpg)
 
 他のパラメータについては、まずは上記の設定で進め、慣れてきてから試行錯誤してみてください。
 

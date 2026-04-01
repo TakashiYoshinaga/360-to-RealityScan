@@ -339,7 +339,7 @@ When processing is complete, the regenerated point cloud will be displayed.
 7.　Set **Export images** to `No`  
 8.　Click **OK**  
 
-![COLMAP Export Settings](../Images/021-RealityScanUI-07_2.jpg)
+![COLMAP Export Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/021-RealityScanUI-07_2.jpg)
 
 ---
 
@@ -352,7 +352,7 @@ When processing is complete, the regenerated point cloud will be displayed.
 3.　When the **Load DataSet** dialog appears, click **Load**  
 
 ![LichtFeld Studio Launch Screen](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/007-LichtFeldStudioUI-01.jpg)
-![Load DataSet Dialog](../Images/008-LoadDataset_2.jpg)
+![Load DataSet Dialog](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/008-LoadDataset_2.jpg)
 
 Verify that the point cloud and images have been loaded correctly.  
 If you don't need to see the camera images, uncheck **Camera Frustum** in the **Rendering** tab on the right side of the screen.
@@ -384,7 +384,7 @@ Only apply the following if you created mask images with AutoMasker.
 - **Mask Mode** → Set to `Ignore`
 - **Use Alpha as Mask** → Uncheck
 
-![Training Settings Screen](../Images/010-TrainingSettings_2.jpg)
+![Training Settings Screen](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/010-TrainingSettings_2.jpg)
 
 For other parameters, start with the above settings and experiment as you become more comfortable.
 
