@@ -64,7 +64,7 @@ After generating SfM and a point cloud from Equirectangular images, the followin
 
 | Software | Purpose |
 |----------|---------|
-| [LichtFeld Studio v0.5.0](https://lichtfeld.io/) | GUI tool for 3D Gaussian Splatting |
+| [LichtFeld Studio v0.5.1](https://lichtfeld.io/) | GUI tool for 3D Gaussian Splatting |
 | [360° Gaussian v1.3.0](https://laskosvirtuals.gumroad.com/l/360gaussian) | Tool to automate each step of Gaussian Splatting |
 | [RealityScan](https://www.realityscan.com/) | Used for point cloud regeneration |
 | [360-to-RealityScan](https://github.com/TakashiYoshinaga/360-to-RealityScan) | Converts SphereSfM results into a format readable by RealityScan (.xmp) |
@@ -380,7 +380,7 @@ When processing is complete, the regenerated point cloud will be displayed.
 4.　Click **Load**  
 
 ![LichtFeld Studio Launch Screen](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/007-LichtFeldStudioUI-01.jpg)
-![Load DataSet Dialog](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/022-LoadDataset.jpg)
+![Load DataSet Dialog](../Images/022-LoadDataset_2.jpg)
 
 Verify that the point cloud and images have been loaded correctly.  
 If you don't need to see the camera images, uncheck **Camera Frustum** in the **Rendering** tab on the right side of the screen.
@@ -392,16 +392,16 @@ If you don't need to see the camera images, uncheck **Camera Frustum** in the **
 Here is an example training configuration. Feel free to experiment with different settings as you get more familiar.
 
 1.　Click the **Training** tab  
-2.　Select `MCMC` for **Strategy**  
+2.　Select `MRNF` for **Strategy**  
 3.　Set **Steps Scaler** appropriately  
 
 | Condition | Recommended Value |
 |-----------|------------------|
 | 300 or fewer images | `1` |
-| More than 300 images | `number of images ÷ 300` |
+| More than 300 images | `number of images / 300` |
 
 > **⚠️ If Training Doesn't Work**  
-> If the Gaussian Splatting training fails to converge and the view whites out, setting Steps Scaler to **2–3x** the value of `number of images ÷ 300` tends to stabilize training.  
+> If the Gaussian Splatting training fails to converge and the view whites out, setting Steps Scaler to **2–3x** the value of `number of images / 300` tends to stabilize training.  
 > In the author's experience, it's also common practice to start training from the beginning with a value around **1.5–2x** the recommended value.
 
 4.　Set **Max Gaussians** for the maximum number of Gaussians  
@@ -412,7 +412,7 @@ Only apply the following if you created mask images with AutoMasker.
 - **Mask Mode** → Set to `Ignore`
 - **Use Alpha as Mask** → Uncheck
 
-![Training Settings Screen](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/010-TrainingSettings.jpg)
+![Training Settings Screen](../Images/010-TrainingSettings_2.jpg)
 
 For other parameters, start with the above settings and experiment as you become more comfortable.
 
@@ -459,5 +459,3 @@ The video below shows the result of applying this workflow to a wider area than 
 
 [![Sample Output Video](https://img.youtube.com/vi/92ycchQSTos/0.jpg)](https://www.youtube.com/watch?v=92ycchQSTos)
 
-> **💡 About the Nightly Build**  
-> This article covers the release version workflow, but the Nightly Build version of LichtFeld Studio includes a mode called **LFT** (a hybrid of IGS+ and MCMC). Personally, I recommend it over MCMC, so give it a try if you're interested.

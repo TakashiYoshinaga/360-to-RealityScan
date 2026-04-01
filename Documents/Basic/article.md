@@ -40,7 +40,7 @@
 
 | ソフトウェア | 用途 |
 |------------|------|
-| [LichtFeld Studio v0.5.0](https://lichtfeld.io/) | 3D Gaussian Splatting の GUI ツール |
+| [LichtFeld Studio v0.5.1](https://lichtfeld.io/) | 3D Gaussian Splatting の GUI ツール |
 | [360° Gaussian v1.3.0](https://laskosvirtuals.gumroad.com/l/360gaussian) | Gaussian Splatting の各ステップを自動化するツール |
 
 ---
@@ -199,7 +199,7 @@ LichtFeld を選択すると、SfM・点群生成・Gaussian Splatting まで一
 3.　**Load DataSet** ダイアログが表示されたら **Load** をクリックします  
 
 ![LichtFeld Studio の起動画面](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/007-LichtFeldStudioUI-01.jpg)
-![Load DataSet ダイアログ](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/008-LoadDataset.jpg)
+![Load DataSet ダイアログ](../Images/008-LoadDataset_2.jpg)
 
 点群と画像が正しく読み込まれたことを確認してください。  
 カメラ画像の表示が不要な場合は、画面右側の **Rendering** タブにある **Camera Frustum** のチェックを外します。
@@ -211,16 +211,16 @@ LichtFeld を選択すると、SfM・点群生成・Gaussian Splatting まで一
 ここではトレーニング設定の一例を紹介します。慣れてきたらさまざまな設定を試してみてください。
 
 1.　**Training** タブをクリックします  
-2.　**Strategy** で `MCMC` を選択します  
+2.　**Strategy** で `MRNF` を選択します  
 3.　**Steps Scaler** を適宜設定します  
 
 | 条件 | 推奨値 |
 |------|--------|
 | 画像数が 300 枚以下 | `1` |
-| 画像数が 300 枚以上 | `画像枚数 ÷ 300` |
+| 画像数が 300 枚以上 | `画像枚数 / 300` |
 
 > **⚠️ トレーニングがうまくいかない場合**  
-> 上記の設定で実行してもGaussian Splattingのトレーニングが進むにつれて収束せずにホワイトアウトしてしまう場合は、Steps Scaler を `画像枚数 ÷ 300` の **2〜3 倍** に設定すると安定しやすいです。  
+> 上記の設定で実行してもGaussian Splattingのトレーニングが進むにつれて収束せずにホワイトアウトしてしまう場合は、Steps Scaler を `画像枚数 / 300` の **2〜3 倍** に設定すると安定しやすいです。  
 > なお筆者は経験上、最初から推奨の **1.5〜2 倍**程度の値でトレーニングを始めています。
 
 4.　**Max Gaussians** で最大ガウシアン数を設定します  
@@ -231,7 +231,7 @@ Auto Maskerを使ってマスク画像を作成した場合のみ下記の設定
 - **Mask Mode** → `Ignore` に設定
 - **Use Alpha as Mask** → チェックを外す
 
-![トレーニング設定画面](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/010-TrainingSettings.jpg)
+![トレーニング設定画面](../Images/010-TrainingSettings_2.jpg)
 
 他のパラメータについては、まずは上記の設定で進め、慣れてきてから試行錯誤してみてください。
 
@@ -260,5 +260,3 @@ Auto Maskerを使ってマスク画像を作成した場合のみ下記の設定
 
 また、本記事の手順にもうひと手間加えることで、さらにクオリティを引き上げる方法も確認しています。詳細は別記事「**クオリティ改善編**」にまとめますので、興味のある方はぜひチェックしてみてください。
 
-> **💡 Nightly Build 版について**  
-> 本記事ではリリース版の手順を紹介しましたが、LichtFeld Studio の Nightly Build 版には **LFT**（IGS+ と MCMC のハイブリッド）というモードが搭載されています。個人的には MCMC よりもおすすめですので、興味のある方はぜひ試してみてください。
