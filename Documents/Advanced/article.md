@@ -324,30 +324,9 @@ SfM の結果を RealityScan に取り込む準備が整いました。
 
 ### 3.5 エクスポート
 
-**【点群データのエクスポート】**
+**【カメラの位置姿勢情報と点群を COLMAP 形式でエクスポート】**
 
-1.　**WORKFLOW** タブの **Export** をクリックします
-2.　**Export** をクリックします
-
-![Export メニュー](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/019-RealityScanUI-05.jpg)
-
-3.　**Sparse point cloud as Polygon File Format (*.ply)** をクリックします  
-4.　`RealityScan` フォルダを選択し、適当なファイル名（例：`pointcloud.ply`）で保存します  
-5.　**Exporter Setting** ダイアログの **Export transformation settings → Scene transformation** で以下を設定します  
-
-| 項目 | 設定値 |
-|------|--------|
-| Rotate X | `90°` |
-| Rotate Y | `0°` |
-| Rotate Z | `0°` |
-
-6.　**OK** をクリックします
-
-![点群エクスポート設定](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/020-RealityScanUI-06.jpg)
-
-**【カメラの位置姿勢情報を COLMAP 形式でエクスポート】**
-
-1.　**Export** を再度クリックします  
+1.　**Export** をクリックします  
 2.　**COLMAP Text Format** をクリックします  
 3.　`RealityScan` フォルダに任意のファイル名（例：`colmap`）で保存します  
 

@@ -319,30 +319,9 @@ When processing is complete, the regenerated point cloud will be displayed.
 
 ### 3.5 Export
 
-**[Export Point Cloud Data]**
+**[Export Camera Pose Information and Point Cloud in COLMAP Format]**
 
-1.　Click **Export** in the **WORKFLOW** tab  
-2.　Click **Export**  
-
-![Export Menu](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/019-RealityScanUI-05.jpg)
-
-3.　Click **Sparse point cloud as Polygon File Format (*.ply)**  
-4.　Select the `RealityScan` folder and save with a suitable file name (e.g., `pointcloud.ply`)  
-5.　Under **Export transformation settings → Scene transformation** in the **Exporter Setting** dialog, configure the following:  
-
-| Item | Value |
-|------|-------|
-| Rotate X | `90°` |
-| Rotate Y | `0°` |
-| Rotate Z | `0°` |
-
-6.　Click **OK**  
-
-![Point Cloud Export Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/020-RealityScanUI-06.jpg)
-
-**[Export Camera Pose Information in COLMAP Format]**
-
-1.　Click **Export** again  
+1.　Click **Export**  
 2.　Click **COLMAP Text Format**  
 3.　Save to the `RealityScan` folder with any file name (e.g., `colmap`)  
 
