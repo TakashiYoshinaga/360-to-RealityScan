@@ -326,25 +326,20 @@ SfM の結果を RealityScan に取り込む準備が整いました。
 
 **【カメラの位置姿勢情報と点群を COLMAP 形式でエクスポート】**
 
-1.　**Export** をクリックします  
-2.　**COLMAP Text Format** をクリックします  
-3.　`RealityScan` フォルダに任意のファイル名（例：`colmap`）で保存します  
+1.　**WORKFLOW**タブをクリックします  
+2.　**Export** をクリックします  
+3.　**COLMAP** をクリックします  
+4.　`RealityScan` フォルダに任意のファイル名（例：`colmap`）で保存します  
 
 > **📝 ファイル上書きに関する注意**  
 > `metashape_to_realityscan.py` で出力された `cameras.txt`・`images.txt`・`points3D.txt` は上書きされます。上書きしても問題はありませんが、点群再生成前の COLMAP ファイルを保存しておきたい場合は、事前に別のフォルダに退避してください。
 
-4.　**Export Dialog** で **Export images** を `No` に設定します  
-5.　**Export transformation settings → Scene transformation** を開き、Rotationを以下のように設定します  
+5.　**Export Dialog** で **Directory structure**を`Flat`にします  
+6.　**Export masks** を `No` に設定します  
+7.　**Export images** を `No` に設定します  
+8.　**OK** をクリックします  
 
-| 項目 | 設定値 |
-|------|--------|
-| Rotate X | `0°` |
-| Rotate Y | `0°` |
-| Rotate Z | `0°` |
-
-6.　**OK** をクリックします  
-
-![COLMAP エクスポート設定](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/021-RealityScanUI-07.jpg)
+![COLMAP エクスポート設定](../Images/021-RealityScanUI-07_2.jpg)
 
 ---
 
@@ -354,12 +349,10 @@ SfM の結果を RealityScan に取り込む準備が整いました。
 
 1.　**LichtFeld Studio** を起動します  
 2.　動画名フォルダ直下の **`RealityScan`** フォルダをウィンドウにドラッグ＆ドロップします  
-3.　**Load DataSet** ダイアログが表示されたら、**Init file** で `RealityScan` フォルダ内の `pointcloud.ply` を選択します  
-   ※ RealityScan による点群の再生成をスキップした場合は、Init file は空白のままで構いません  
-4.　**Load** をクリックします
+3.　**Load DataSet** ダイアログが表示されたら、そのまま**Load** をクリックします
 
 ![LichtFeld Studio の起動画面](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/007-LichtFeldStudioUI-01.jpg)
-![Load DataSet ダイアログ](../Images/022-LoadDataset_2.jpg)
+![Load DataSet ダイアログ](../Images/008-LoadDataset_2.jpg)
 
 点群と画像が正しく読み込まれたことを確認してください。  
 カメラ画像の表示が不要な場合は、画面右側の **Rendering** タブにある **Camera Frustum** のチェックを外します。

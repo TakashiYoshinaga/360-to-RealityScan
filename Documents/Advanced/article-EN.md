@@ -324,27 +324,22 @@ When processing is complete, the regenerated point cloud will be displayed.
 
 ### 3.5 Export
 
-**【Export Camera Pose Information and Point Cloud in COLMAP Format】**
+**[Export Camera Pose Information and Point Cloud in COLMAP Format]**
 
-1.　Click **Export**  
-2.　Click **COLMAP Text Format**  
-3.　Save to the `RealityScan` folder with any file name (e.g., `colmap`)  
+1.　Click the **WORKFLOW** tab  
+2.　Click **Export**  
+3.　Click **COLMAP**  
+4.　Save to the `RealityScan` folder with any file name (e.g., `colmap`)  
 
 > **📝 Note on File Overwriting**  
 > The `cameras.txt`, `images.txt`, and `points3D.txt` output by `spheresfm_to_realityscan.py` will be overwritten. This is fine, but if you want to keep the COLMAP files from before regeneration, move them to a separate folder beforehand.
 
-4.　In the **Export Dialog**, set **Export images** to `No`  
-5.　Open **Export transformation settings → Scene transformation** and set the Rotation as follows:
+5.　In the **Export Dialog**, set **Directory structure** to `Flat`  
+6.　Set **Export masks** to `No`  
+7.　Set **Export images** to `No`  
+8.　Click **OK**  
 
-| Item | Value |
-|------|-------|
-| Rotate X | `0°` |
-| Rotate Y | `0°` |
-| Rotate Z | `0°` |
-
-6.　Click **OK**  
-
-![COLMAP Export Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/021-RealityScanUI-07.jpg)
+![COLMAP Export Settings](../Images/021-RealityScanUI-07_2.jpg)
 
 ---
 
@@ -354,12 +349,10 @@ When processing is complete, the regenerated point cloud will be displayed.
 
 1.　Launch **LichtFeld Studio**  
 2.　Drag and drop the **`RealityScan`** folder (directly under the video name folder) into the window  
-3.　When the **Load DataSet** dialog appears, select `pointcloud.ply` from the `RealityScan` folder for **Init file**  
-   ※ If you skipped point cloud regeneration in RealityScan, you can leave **Init file** blank  
-4.　Click **Load**  
+3.　When the **Load DataSet** dialog appears, click **Load**  
 
 ![LichtFeld Studio Launch Screen](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/007-LichtFeldStudioUI-01.jpg)
-![Load DataSet Dialog](../Images/022-LoadDataset_2.jpg)
+![Load DataSet Dialog](../Images/008-LoadDataset_2.jpg)
 
 Verify that the point cloud and images have been loaded correctly.  
 If you don't need to see the camera images, uncheck **Camera Frustum** in the **Rendering** tab on the right side of the screen.
