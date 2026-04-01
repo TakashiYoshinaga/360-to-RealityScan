@@ -336,10 +336,17 @@ SfM の結果を RealityScan に取り込む準備が整いました。
 
 5.　**Export Dialog** で **Directory structure**を`Flat`にします  
 6.　**Export masks** を `No` に設定します  
-7.　**Export images** を `No` に設定します  
-8.　**OK** をクリックします  
+7.　**Export images** を一旦 `Yes` に設定します  
+8.　**Export image setting** が表示されます  
+9.　**Image format** を `jpg` に設定  
+10.　**Naming convention** を `original file name`に設定  
+11.　**Export images** を一旦 `No` に設定します  
+12.　**OK** をクリックします  
 
 ![COLMAP エクスポート設定](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/021-RealityScanUI-07_2.jpg)
+
+> **💡 ヒント**  
+> `all` フォルダとその中の画像は RealityScan での処理（点群生成など）のためだけに使用されます。そのため、エクスポート完了後に不要になれば削除して構いません。もし再度必要になった場合は、`metashape_to_realityscan.py` を実行することでいつでも再生成できます。
 
 ---
 

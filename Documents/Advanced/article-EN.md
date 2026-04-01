@@ -337,10 +337,17 @@ When processing is complete, the regenerated point cloud will be displayed.
 
 5.　In the **Export Dialog**, set **Directory structure** to `Flat`  
 6.　Set **Export masks** to `No`  
-7.　Set **Export images** to `No`  
-8.　Click **OK**  
+7.　Temporarily set **Export images** to `Yes`  
+8.　The **Export image setting** will appear  
+9.　Set **Image format** to `jpg`  
+10.　Set **Naming convention** to `original file name`  
+11.　Set **Export images** back to `No`  
+12.　Click **OK**  
 
 ![COLMAP Export Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/021-RealityScanUI-07_2.jpg)
+
+> **💡 Hint**  
+> The `all` folder and its images are used exclusively for processing within RealityScan. Therefore, you can safely delete them once the export is complete and they are no longer needed. If you ever need them again, you can always regenerate them by re-running `spheresfm_to_realityscan.py`.
 
 ---
 
