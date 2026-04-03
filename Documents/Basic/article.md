@@ -8,12 +8,6 @@
 本記事で紹介するツールはすべて**無料で利用可能**（一部オプション機能は有料）なため、これからGaussian Splattingを始めたい方も気軽にスタートできます。  
 また、クオリティをさらに引き上げるアレンジについては、別記事「[クオリティ向上編](../Advanced/article.md)」で解説しています。さらに、有償ソフトウェアのAgisoft Metashapeを用いたワークフローについても「[Metashape編](../MetaShape/article.md)」で紹介していますので、興味がある方はこちらも併せてご覧ください。
 
-> **📝 SfM ツールの速度に関する補足**
->
-> 「無料ツールは COLMAP の CameraRig アプローチだから遅い」という声を見かけたので補足。本記事で使用している **SphereSfM** は CameraRig とは原理的に異なり、本記事で使用する**Equirectangular 画像を球面カメラモデルで直接処理する**ため、CameraRig のようにキューブマップ 6 面分のマッチングコストが発生せず速度面も改善されています。
->
-> 有償ツールにアドバンテージがあることは当然ですが、まず Gaussian Splatting を体験する入口としては本記事のフリーツール構成もぜひ試してみてください。さらなるクオリティを追求したくなったら、別記事の Metashape 編もチャレンジしてみてください。
-
 ### 本記事の手順による作例
 
 [![作例動画](https://img.youtube.com/vi/n-NL1UisVF4/0.jpg)](https://www.youtube.com/watch?v=n-NL1UisVF4)

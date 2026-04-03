@@ -9,12 +9,6 @@ In the [previous article (Basic Workflow)](../Basic/article-EN.md), I introduced
 > **💡 Before You Start**  
 > This article includes a step that involves running a Python script. If you're new to Gaussian Splatting or unfamiliar with Python, I recommend working through the [Basic Workflow](../Basic/article-EN.md) first to get a feel for the overall process before tackling this one.
 
-> **📝 A Note on SfM Tool Speed**
->
-> You may have seen comments like "free tools are slow because they use COLMAP's CameraRig approach" — so let me clarify. **SphereSfM**, used in this article, works on a fundamentally different principle from CameraRig. By **processing Equirectangular images directly with a spherical camera model**, it avoids the matching cost across 6 cubemap faces, which translates to a meaningful speed advantage.
->
-> Paid tools like Metashape do have their advantages, of course. But if you're just getting started with Gaussian Splatting, this free toolchain is well worth trying. When you're ready to push quality further, check out the Metashape edition in a separate article.
-
 ### Output Comparison with the Basic Workflow
 
 The image below compares the output from the basic workflow and this article's approach. You can see that tile seams and object outlines are reproduced more clearly.
