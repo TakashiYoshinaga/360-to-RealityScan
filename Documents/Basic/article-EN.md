@@ -202,7 +202,7 @@ Verify that the camera positions and point cloud have been generated correctly.
 ![Load DataSet Dialog](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/008-LoadDataset_2.jpg)  
   
 Verify that the point cloud and images have been loaded correctly.  
-If you don't need to see the camera images, uncheck **Camera Frustum** in the **Rendering** tab on the right side of the screen
+If you don't need to see the camera images, uncheck **Camera Frustum** in the **Rendering** tab on the right side of the screen  
 ![After Data Loading](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/009-LichtFeldStudioUI-02.jpg)
 
 

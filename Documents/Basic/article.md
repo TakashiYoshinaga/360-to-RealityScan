@@ -202,7 +202,7 @@ LichtFeld を選択すると、SfM・点群生成・Gaussian Splatting まで一
 ![Load DataSet ダイアログ](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/008-LoadDataset_2.jpg)
   
 点群と画像が正しく読み込まれたことを確認してください。  
-カメラ画像の表示が不要な場合は、画面右側の **Rendering** タブにある **Camera Frustum** のチェックを外します。
+カメラ画像の表示が不要な場合は、画面右側の **Rendering** タブにある **Camera Frustum** のチェックを外します。  
 
 ![データ読み込み後の画面](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/009-LichtFeldStudioUI-02.jpg)  
 
