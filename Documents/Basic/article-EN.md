@@ -138,7 +138,6 @@ My preferred settings are:
 4.　Select `sequential` for **Matcher**  
 Since v1.4.0, Loop detection with vocabulary tree is now supported, significantly improving loop closing performance.  
 Other settings can be left at their defaults. It is recommended to keep **Realign cubemaps** disabled.  
-> ⚠️ As of 2026/4/4, enabling Realign cubemaps causes LichtFeld Studio to crash.  
   
 As a reference, here is the author's example settings:
 
