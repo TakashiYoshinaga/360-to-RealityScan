@@ -176,7 +176,7 @@ LichtFeld を選択すると、SfM・点群生成・Gaussian Splatting まで一
 その他の設定はデフォルトのままで問題ありません。  
 参考として、筆者が実際によく使う設定例を以下に示します。
 
-![SphereSFM の設定例（v1.4.0）](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/037-SphereSfM_Setting_140_2.jpg)
+![SphereSFM の設定例（v1.4.0）](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/037-SphereSfM_Setting_140_3.jpg)
 
 <br>
 <details>

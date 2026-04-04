@@ -141,7 +141,7 @@ LichtFeld を選択すると、SfM・点群生成・Gaussian Splatting まで一
    
 参考として、筆者が実際によく使う設定例を以下に示します。特に特徴の少ないエリアを含むシーンでは、**Realign cubemaps** を有効にすると位置合わせがずれてしまう場合があるため、筆者はオフで運用することが多いです。状況に応じて使い分けてください。
 
-![SphereSFM の設定例（v1.4.0）](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/037-SphereSfM_Setting_140_2.jpg)
+![SphereSFM の設定例（v1.4.0）](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/037-SphereSfM_Setting_140_3.jpg)
 
 <br>
 <details>
@@ -202,6 +202,11 @@ LichtFeld を選択すると、SfM・点群生成・Gaussian Splatting まで一
 ![Load DataSet ダイアログ](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/008-LoadDataset_2.jpg)
 
 点群と画像が正しく読み込まれたことを確認してください。  
+
+> **⚠️ 注意**  
+> 読み込み中の場合はCubeの面に画像が表示されていない箇所があります。この状態でGaussian Splattingの学習をスタートさせるとLichtFeld Studioがクラッシュすることがあります。  
+> ![読み込み中の状態](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/038-LoadingResult.jpg)
+
 カメラ画像の表示が不要な場合は、画面右側の **Rendering** タブにある **Camera Frustum** のチェックを外します。
 
 ![データ読み込み後の画面](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/009-LichtFeldStudioUI-02.jpg)

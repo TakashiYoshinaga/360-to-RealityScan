@@ -141,7 +141,7 @@ Other settings can be left at their defaults.
   
 As a reference, below is a practical settings example that the author often uses. In scenes that include low-texture areas, enabling **Realign cubemaps** can sometimes introduce misalignment, so the author often keeps it disabled. Please choose the setting based on the scene:
 
-![SphereSFM Settings Example (v1.4.0)](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/037-SphereSfM_Setting_140_2.jpg)
+![SphereSFM Settings Example (v1.4.0)](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/037-SphereSfM_Setting_140_3.jpg)
 
 <br>
 <details>
@@ -201,6 +201,11 @@ Verify that the camera positions and point cloud have been generated correctly.
 ![LichtFeld Studio Launch Screen](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/007-LichtFeldStudioUI-01.jpg)
 ![Load DataSet Dialog](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/008-LoadDataset_2.jpg)  
 Verify that the point cloud and images have been loaded correctly.  
+
+> **⚠️ Note**  
+> If the images are still loading, some faces of the Cubes might not display the images. Starting the Gaussian Splatting training in this state may cause LichtFeld Studio to crash.  
+> ![Loading in progress](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/038-LoadingResult.jpg)
+
 If you don't need to see the camera images, uncheck **Camera Frustum** in the **Rendering** tab on the right side of the screen.
 
 ![After Data Loading](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/009-LichtFeldStudioUI-02.jpg)

@@ -176,7 +176,7 @@ Since v1.4.0, Loop detection with vocabulary tree is now supported, significantl
 Other settings can be left at their defaults.  
 As a reference, below is a practical settings example that the author often uses:
 
-![SphereSFM Settings Example (v1.4.0)](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/037-SphereSfM_Setting_140_2.jpg)
+![SphereSFM Settings Example (v1.4.0)](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/037-SphereSfM_Setting_140_3.jpg)
 
 <br>
 <details>
