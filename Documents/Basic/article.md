@@ -200,16 +200,17 @@ LichtFeld を選択すると、SfM・点群生成・Gaussian Splatting まで一
 
 ![LichtFeld Studio の起動画面](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/007-LichtFeldStudioUI-01.jpg)
 ![Load DataSet ダイアログ](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/008-LoadDataset_2.jpg)
-
+  
 点群と画像が正しく読み込まれたことを確認してください。  
+カメラ画像の表示が不要な場合は、画面右側の **Rendering** タブにある **Camera Frustum** のチェックを外します。
+
+![データ読み込み後の画面](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/009-LichtFeldStudioUI-02.jpg)  
 
 > **⚠️ 注意**  
 > 読み込み中の場合はCubeの面に画像が表示されていない箇所があります。この状態でGaussian Splattingの学習をスタートさせるとLichtFeld Studioがクラッシュすることがあります。  
 > ![読み込み中の状態](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/038-LoadingResult.jpg)
 
-カメラ画像の表示が不要な場合は、画面右側の **Rendering** タブにある **Camera Frustum** のチェックを外します。
 
-![データ読み込み後の画面](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/009-LichtFeldStudioUI-02.jpg)
 
 ### 3.2 トレーニング設定
 

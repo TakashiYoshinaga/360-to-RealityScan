@@ -200,15 +200,17 @@ Verify that the camera positions and point cloud have been generated correctly.
 
 ![LichtFeld Studio Launch Screen](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/007-LichtFeldStudioUI-01.jpg)
 ![Load DataSet Dialog](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/008-LoadDataset_2.jpg)  
+  
 Verify that the point cloud and images have been loaded correctly.  
+If you don't need to see the camera images, uncheck **Camera Frustum** in the **Rendering** tab on the right side of the screen
+![After Data Loading](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/009-LichtFeldStudioUI-02.jpg)
+
 
 > **⚠️ Note**  
 > If the images are still loading, some faces of the Cubes might not display the images. Starting the Gaussian Splatting training in this state may cause LichtFeld Studio to crash.  
 > ![Loading in progress](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/038-LoadingResult.jpg)
 
-If you don't need to see the camera images, uncheck **Camera Frustum** in the **Rendering** tab on the right side of the screen.
 
-![After Data Loading](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/009-LichtFeldStudioUI-02.jpg)
 
 ### 3.2 Training Configuration
 
