@@ -59,7 +59,7 @@ After generating SfM and a point cloud from Equirectangular images, the followin
 | Software | Purpose |
 |----------|---------|
 | [LichtFeld Studio v0.5.1](https://lichtfeld.io/) | GUI tool for 3D Gaussian Splatting |
-| [360° Gaussian v1.3.0](https://laskosvirtuals.gumroad.com/l/360gaussian) | Tool to automate each step of Gaussian Splatting |
+| [360° Gaussian v1.4.0](https://laskosvirtuals.gumroad.com/l/360gaussian) | Tool to automate each step of Gaussian Splatting (Updated: April 4, 2026) |
 | [RealityScan](https://www.realityscan.com/) | Used for point cloud regeneration |
 | [360-to-RealityScan](https://github.com/TakashiYoshinaga/360-to-RealityScan) | Converts SphereSfM results into a format readable by RealityScan (.xmp) |
 
@@ -171,18 +171,22 @@ My preferred settings are:
 
 ![SphereSFM Preset Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/004-SphreSfM_Setting-01.jpg)
 
-4.　Select `exhaustive` for **Matcher**  
+4.　Select `sequential` for **Matcher**  
+Since v1.4.0, Loop detection with vocabulary tree is now supported, significantly improving loop closing performance.  
 Other settings can be left at their defaults.  
-As an example, here are the settings the author typically uses for shooting relatively large areas:
+As a reference, here is the author's example settings:
 
-![SphereSFM Advanced Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02_5.jpg)  
-Note: This configuration increases the number of computation iterations compared to the default settings and may take more time. We recommend starting with the default settings first.  
+![SphereSFM Settings Example (v1.4.0)](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/037-SphereSfM_Setting_140.jpg)
 
 <br>
 <details>
-<summary>💡 Advanced Matcher Parameter Tuning for Large-Scale Scans (Click to expand)</summary>
+<summary>💡 If sequential doesn't work: Try exhaustive as a last resort (Click to expand)</summary>
 
-Choosing `exhaustive` instead of `sequential` tends to improve the accuracy of **Loop Closure**, which correctly reconnects images near the start and end points of a shoot, especially over large areas. Although this can significantly increase processing time or cause SfM to fail, you can fine-tune the parameters to further increase accuracy, as shown in the image below.
+If `sequential` doesn't produce good results, `exhaustive` is an option to try as a last resort. It matches all image pairs exhaustively, which significantly increases processing time, but may cover pairs that `sequential` failed to connect.
+
+As an example, here are the settings the author typically uses for shooting relatively large areas:  
+![SphereSFM Advanced Settings](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02_5.jpg)  
+Note: This configuration increases the number of computation iterations compared to the default settings and may take more time. We recommend starting with the default settings first.  
 
 The author's recommended configuration strategy is as follows:
 

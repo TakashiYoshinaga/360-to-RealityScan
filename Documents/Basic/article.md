@@ -35,7 +35,7 @@
 | ソフトウェア | 用途 |
 |------------|------|
 | [LichtFeld Studio v0.5.1](https://lichtfeld.io/) | 3D Gaussian Splatting の GUI ツール |
-| [360° Gaussian v1.3.0](https://laskosvirtuals.gumroad.com/l/360gaussian) | Gaussian Splatting の各ステップを自動化するツール |
+| [360° Gaussian v1.4.0](https://laskosvirtuals.gumroad.com/l/360gaussian) | Gaussian Splatting の各ステップを自動化するツール（2026/4/4 更新） |
 
 ---
 
@@ -135,18 +135,22 @@ LichtFeld を選択すると、SfM・点群生成・Gaussian Splatting まで一
 
 ![SphereSFM の Preset 設定](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/004-SphreSfM_Setting-01.jpg)
 
-4.　**Matcher** で `exhaustive` を選択します  
-その他の設定はデフォルトのままで問題ありません。  
-設定の一例として、筆者が比較的広域の撮影で使用している設定を以下に示します。  
+4.　**Matcher** で `sequential` を選択します  
+360°Gaissian v1.4.0 から Loop detection with vocabulary tree がサポートされたため、ループクロージング性能が大幅に向上しました。  
+その他の設定はデフォルトのままで問題ありませんが、**Realign cubemaps** をオンにしておくことをお勧めします。  
+参考として、筆者の設定例を以下に示します。
 
-![SphereSFM の詳細設定例](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02_5.jpg)  
-デフォルト設定と比べて計算回数が多くなり多少時間を要しますので、まずはデフォルト設定で試してみましょう。  
+![SphereSFM の設定例（v1.4.0）](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/037-SphereSfM_Setting_140.jpg)
 
 <br>
 <details>
-<summary>💡 広域スキャン向けの Matcher 詳細パラメータ調整について（開く）</summary>
+<summary>💡 sequential でうまくいかない場合：exhaustive を最終手段として試す（開く）</summary>
 
-`sequential` の代わりに `exhaustive` を選択すると、特に広範囲の撮影において、撮影の始点と終点付近の画像を正しく繋ぎ直す **Loop Closure** の精度が向上しやすくなります。処理時間の大幅な増加や SfM が失敗するリスクはあるものの、下記画像を参考にパラメータを細かく設定してさらに精度を高めることも可能です。  
+`sequential` でうまくいかない場合は、最終手段として `exhaustive` を試す方法があります。全画像ペアを総当たりでマッチングするため処理時間は大幅に増加しますが、`sequential` では繋ぎきれなかった画像ペアをカバーできる可能性があります。
+
+設定の一例として、筆者が比較的広域の撮影で使用している設定を以下に示します。  
+![SphereSFM の詳細設定例](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/005-SphreSfM_Setting-02_5.jpg)  
+デフォルト設定と比べて計算回数が多くなり多少時間を要しますので、まずはデフォルト設定で試してみましょう。  
 
 筆者の推奨する設定方針は以下の通りです。
 
