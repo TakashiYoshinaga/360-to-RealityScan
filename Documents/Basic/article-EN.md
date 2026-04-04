@@ -137,7 +137,7 @@ My preferred settings are:
 
 4.　Select `sequential` for **Matcher**  
 Since v1.4.0, Loop detection with vocabulary tree is now supported, significantly improving loop closing performance.  
-Other settings can be left at their defaults. It is recommended to keep **Realign cubemaps** disabled.  
+Other settings can be left at their defaults.  
   
 As a reference, below is a practical settings example that the author often uses. In scenes that include low-texture areas, enabling **Realign cubemaps** can sometimes introduce misalignment, so the author often keeps it disabled. Please choose the setting based on the scene:
 
