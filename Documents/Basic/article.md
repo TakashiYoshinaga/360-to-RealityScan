@@ -139,9 +139,9 @@ LichtFeld を選択すると、SfM・点群生成・Gaussian Splatting まで一
 360°Gaissian v1.4.0 から Loop detection with vocabulary tree がサポートされたため、ループクロージング性能が大幅に向上しました。  
 その他の設定はデフォルトのままで問題ありません。**Realign cubemaps** はオフにしておくことをお勧めします。 
    
-参考として、筆者の設定例を以下に示します。
+参考として、筆者が実際によく使う設定例を以下に示します。特に特徴の少ないエリアを含むシーンでは、**Realign cubemaps** を有効にすると位置合わせがずれてしまう場合があるため、筆者はオフで運用することが多いです。状況に応じて使い分けてください。
 
-![SphereSFM の設定例（v1.4.0）](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/037-SphereSfM_Setting_140.jpg)
+![SphereSFM の設定例（v1.4.0）](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/037-SphereSfM_Setting_140_2.jpg)
 
 <br>
 <details>

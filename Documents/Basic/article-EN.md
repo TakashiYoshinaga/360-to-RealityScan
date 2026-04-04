@@ -139,9 +139,9 @@ My preferred settings are:
 Since v1.4.0, Loop detection with vocabulary tree is now supported, significantly improving loop closing performance.  
 Other settings can be left at their defaults. It is recommended to keep **Realign cubemaps** disabled.  
   
-As a reference, here is the author's example settings:
+As a reference, below is a practical settings example that the author often uses. In scenes that include low-texture areas, enabling **Realign cubemaps** can sometimes introduce misalignment, so the author often keeps it disabled. Please choose the setting based on the scene:
 
-![SphereSFM Settings Example (v1.4.0)](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/037-SphereSfM_Setting_140.jpg)
+![SphereSFM Settings Example (v1.4.0)](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/037-SphereSfM_Setting_140_2.jpg)
 
 <br>
 <details>
