@@ -113,6 +113,9 @@ For detailed usage, refer to the following videos:
 
 **AutoMasker** is a tool that automatically masks regions that are unnecessary for Gaussian Splatting.
 
+> **ℹ️ This step is optional**  
+> If you are not using AutoMasker, skip ahead to [2.3 SfM Configuration](#23-sfm-configuration).
+
 1.　Click **AutoMasker**  
 2.　Enable **Use AutoMasker**  
 3.　Enter keywords in **Detection Keywords** separated by periods (`.`)  
