@@ -93,10 +93,10 @@ Export the captured video in **Equirectangular format** and copy it to your PC.
 If you're using an Insta360, export it using **Insta360 Studio** (the PC application).
 
 > **⚠️ Note on Stabilization**  
-> Stabilization can be ON or OFF, but if you turn it **ON**, make sure to disable the following:
-> - Horizon Leveling
-> - Tilt Recovery
-> - Vibration Reduction
+> Stabilization can be ON or OFF, but if you turn it **ON**, make sure to disable the following:  
+> - Horizon Leveling  
+> - Tilt Recovery  
+> - Vibration Reduction  
 
 > **💡 Tip**  
 > With stabilization ON, the camera automatically corrects for tilt. Strictly speaking, the slight distortion introduced by this correction can become a source of noise in later processing — but if you just want to get started without worrying about that, turning stabilization ON is totally fine.

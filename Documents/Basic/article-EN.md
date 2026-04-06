@@ -60,10 +60,10 @@ Export the captured video in **Equirectangular format** and copy it to your PC.
 If you're using an Insta360, export it using **Insta360 Studio** (the PC application).
 
 > **⚠️ Note on Stabilization**  
-> Stabilization can be ON or OFF, but if you turn it **ON**, make sure to disable the following:
-> - Horizon Leveling
-> - Tilt Recovery
-> - Vibration Reduction
+> Stabilization can be ON or OFF, but if you turn it **ON**, make sure to disable the following:  
+> - Horizon Leveling  
+> - Tilt Recovery  
+> - Vibration Reduction  
 
 ![Stabilization Settings Screen](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/000-stabilization.jpg)
 
