@@ -167,7 +167,7 @@ def read_ply(filepath: str) -> Tuple[np.ndarray, Optional[np.ndarray]]:
 SUPPORTED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".tif", ".tiff", ".webp"}
 DEFAULT_FOV = 90
 DEFAULT_OVERLAP = 0.3
-DEFAULT_PITCHES = "0"
+DEFAULT_PITCHES = ""
 DEFAULT_WIDTH = 960
 DEFAULT_ASPECT = "1:1"
 
@@ -197,6 +197,17 @@ def check_ffmpeg() -> bool:
 def compute_yaw_interval(fov: float, overlap: float) -> float:
     """Calculate the horizontal rotation step (degrees)."""
     return fov * (1.0 - overlap)
+
+
+def compute_yaw_angles_for_pitch(n_eq: int, pitch_deg: float) -> List[float]:
+    """Compute evenly-spaced yaw angles for a given pitch, adaptive by cos(pitch).
+
+    At the equator (pitch=0), returns n_eq angles.
+    At higher latitudes, reduces count proportional to cos(|pitch|),
+    down to a minimum of 1 image near the poles.
+    """
+    n = max(1, round(n_eq * math.cos(math.radians(abs(pitch_deg)))))
+    return [round(360.0 / n * i, 2) for i in range(n)]
 
 
 def derive_vertical_fov(h_fov: float, aspect: float) -> float:
@@ -415,20 +426,31 @@ def execute_conversion(
         v_fov = derive_vertical_fov(h_fov, aspect_ratio)
         yaw_interval = compute_yaw_interval(h_fov, overlap)
 
-        yaw_angles: List[float] = []
+        # Equator yaw angles (base, preserves original cumulative behaviour)
+        yaw_angles_eq: List[float] = []
         yaw = 0.0
         while yaw < 360.0:
-            yaw_angles.append(round(yaw, 2))
+            yaw_angles_eq.append(round(yaw, 2))
             yaw += yaw_interval
+        n_eq = len(yaw_angles_eq)
+
+        # Always include 0°; merge with user-specified additional pitches
+        all_pitches: List[float] = sorted(set([0.0] + [float(p) for p in pitches]))
+        yaw_angles_per_pitch: Dict[float, List[float]] = {
+            p: (yaw_angles_eq if p == 0.0 else compute_yaw_angles_for_pitch(n_eq, p))
+            for p in all_pitches
+        }
 
         log_callback(f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
         log_callback(f"📐 Settings:")
         log_callback(f"   Horizontal FOV  : {h_fov}°")
         log_callback(f"   Vertical FOV    : {v_fov:.1f}°")
-        log_callback(f"   Overlap Rate    : {overlap}")
-        log_callback(f"   Yaw Step        : {yaw_interval:.1f}°")
-        log_callback(f"   Yaw Count       : {len(yaw_angles)}")
-        log_callback(f"   Pitch Values    : {pitches}")
+        log_callback(f"   Overlap Rate    : {overlap} (at equator 0°)")
+        log_callback(f"   Yaw Step (eq)   : {yaw_interval:.1f}°")
+        log_callback(f"   Yaw Count (eq)  : {n_eq}")
+        log_callback(f"   Pitch Values    : {all_pitches}")
+        for p in all_pitches:
+            log_callback(f"     pitch {p:+.0f}° → {len(yaw_angles_per_pitch[p])} views")
         log_callback(f"   Output Size     : {output_width} × {output_height}")
         log_callback(f"   Input Images    : {len(src_images)}")
         log_callback(f"   Mask Images     : {num_masks}")
@@ -533,12 +555,13 @@ def execute_conversion(
         }
 
         # ── 8. Image cropping + extrinsic parameters ──
-        total_views = len(camera_entries) * len(yaw_angles) * len(pitches)
+        views_per_cam = sum(len(yaw_angles_per_pitch[p]) for p in all_pitches)
+        total_views = len(camera_entries) * views_per_cam
         if mask_lookup:
             total_work = total_views * 2  # images + masks
         else:
             total_work = total_views
-        log_callback(f"🔄 Starting crop: {total_views} images (cameras {len(camera_entries)} × yaw {len(yaw_angles)} × pitch {len(pitches)})")
+        log_callback(f"🔄 Starting crop: {total_views} images (cameras {len(camera_entries)} × {views_per_cam} views/cam)")
         log_callback("")
 
         colmap_images: Dict[int, Dict[str, Any]] = {}
@@ -555,8 +578,8 @@ def execute_conversion(
             R_cam = cam_entry["R_cam"]
             t_cam = cam_entry["t_cam"]
 
-            for pitch in pitches:
-                for yaw in yaw_angles:
+            for pitch in all_pitches:
+                for yaw in yaw_angles_per_pitch[pitch]:
                     # Output filename
                     out_name = f"{base_name}_y{yaw:06.1f}_p{pitch:+.0f}.jpg"
                     out_path = str(split_img_dir / out_name)
@@ -919,7 +942,7 @@ class SphReSfMToRSApp:
 
         # Overlap
         row += 1
-        ttk.Label(settings_frame, text="Overlap Rate (0–1):").grid(
+        ttk.Label(settings_frame, text="Overlap Rate (0–1, at Equator 0°):").grid(
             row=row, column=0, sticky=tk.W, pady=3
         )
         self.overlap_var = tk.StringVar(value=str(DEFAULT_OVERLAP))
@@ -929,13 +952,15 @@ class SphReSfMToRSApp:
 
         # Pitch
         row += 1
-        ttk.Label(settings_frame, text="Pitch Angles (comma-separated, e.g. -45,0,45):").grid(
+        ttk.Label(settings_frame, text="Additional Pitch Angles (e.g. -45,45):").grid(
             row=row, column=0, sticky=tk.W, pady=3
         )
         self.pitch_var = tk.StringVar(value=DEFAULT_PITCHES)
         ttk.Entry(settings_frame, textvariable=self.pitch_var, width=30).grid(
             row=row, column=1, sticky=tk.W, padx=5
         )
+        ttk.Label(settings_frame, text="(0° equator always included)",
+                  foreground="gray").grid(row=row, column=2, sticky=tk.W, padx=5)
 
         # Aspect ratio
         row += 1
@@ -1088,11 +1113,15 @@ class SphReSfMToRSApp:
             messagebox.showwarning("Input Error", "Overlap Rate must be a number between 0 and 1 (exclusive).")
             return
 
-        try:
-            pitches = [float(x.strip()) for x in self.pitch_var.get().split(",")]
-        except ValueError:
-            messagebox.showwarning("Input Error", "Pitch Angles must be comma-separated numbers.")
-            return
+        pitch_str = self.pitch_var.get().strip()
+        if pitch_str:
+            try:
+                pitches = [float(x.strip()) for x in pitch_str.split(",")]
+            except ValueError:
+                messagebox.showwarning("Input Error", "Pitch Angles must be comma-separated numbers.")
+                return
+        else:
+            pitches = []
 
         try:
             aspect_str = self.aspect_var.get().strip()

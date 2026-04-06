@@ -115,8 +115,8 @@ The defaults work fine in most cases.
 
 | Parameter | Description |
 |-----------|-------------|
-| Pitch Angles | Set to `0` to crop only the equatorial region of the equirectangular image |
-| Overlap Rate | Overlap ratio between images. Default is recommended; set to `0` for cube map sides only |
+| Additional Pitch Angles | The equator (vertical center of the image = 0°) is always included automatically. To also crop directions tilted up or down from the center of the equirectangular image, enter angles as comma-separated values (e.g. `-45,45` adds 45° above and 45° below center). Leave blank to crop the equatorial direction only |
+| Overlap Rate | Overlap ratio between images (based on equator). Default is recommended; set to `0` for cube map sides only |
 
 ### Run Conversion
 
