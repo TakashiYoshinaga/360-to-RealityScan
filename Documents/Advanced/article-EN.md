@@ -275,18 +275,18 @@ The default settings are generally fine.
 
 | Parameter | Description |
 |-----------|-------------|
-| Pitch Angles | Setting to `0` extracts only the vertically centered region of the Equirectangular image |
-| Overlap Rate | Overlap ratio between images. Default is fine; setting to `0` extracts only the side faces of the Cube Map |
+| Additional Pitch Angles | The equator (vertical center of the image = 0°) is always included automatically. To also crop directions tilted up or down from the center of the equirectangular image, enter angles as comma-separated values (e.g. `-45,45` adds 45° above and 45° below center). Leave blank to crop the equatorial direction only |
+| Overlap Rate | Overlap ratio between images (based on equator). Default is fine; setting to `0` extracts only the side faces of the Cube Map |
 
-> **💡 Note on Pitch Angles**  
-> There's no need to limit extraction to the horizontal direction only. Depending on the scene, adding upward and downward views can improve the quality of the Gaussian Splatting output. For example, if the floor or ceiling has distinctive textures or patterns, try a setting like `-30,0,30` to include tilted angles.
+> **💡 Note on Additional Pitch Angles**  
+> Depending on the scene, adding upward and downward views can improve the quality of the Gaussian Splatting output. For example, if the floor or ceiling has distinctive textures or patterns, try adding `-45,45` to include tilted angles.
 
 ### 3.3 Running the Conversion
 
 Click **Start Conversion** to start the conversion.  
 When complete, you'll see the following screen:
 
-![SphereSfM Converter Completion Screen](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/014-SphereSfMConverter.jpg)
+![SphereSfM Converter Completion Screen](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/014-SphereSfMConverter_2.jpg)
 
 The SfM results are now ready to be imported into RealityScan.
 

@@ -276,18 +276,18 @@ python metashape_to_realityscan.py
 
 | パラメータ | 説明 |
 |-----------|------|
-| Pitch Angles | `0` に設定すると、Equirectangular 画像の上下中央の領域のみを切り出します |
-| Overlap Rate | 画像間のオーバーラップ率。デフォルトで OK ですが、`0` にすると Cube マップの側面のみになります |
+| Additional Pitch Angles | 赤道（画面上下中央 = 0°）は常に自動で含まれます。Equirectangular 画像の中央から上下に何度か傾けた方向も切り出したい場合は、カンマ区切りで角度を入力します（例：`-45,45` で中央から上45°・下45°を追加）。空欄のままにすると赤道方向のみが切り出されます |
+| Overlap Rate | 画像間のオーバーラップ率（赤道基準）。デフォルトで OK ですが、`0` にすると Cube マップの側面のみになります |
 
-> **💡 Pitch Angles の補足**  
-> `0` のみ（水平方向だけ）に限定する必要は必ずしもありません。撮影シーンによっては、上下方向の画像を加えることで Gaussian Splatting の出力品質が向上する場合があります。たとえば床や天井にタイルや模様など特徴的なテクスチャがある場合などは、`-30,0,30` のように仰角・俯角を加えた設定を試してみてください。
+> **💡 Additional Pitch Angles の補足**  
+> 撮影シーンによっては、上下方向の画像を加えることで Gaussian Splatting の出力品質が向上する場合があります。たとえば床や天井にタイルや模様など特徴的なテクスチャがある場合は、`-45,45` のように仰角・俯角を追加してみてください。
 
 ### 3.3 変換の実行
 
 **Start Conversion** をクリックして変換を実行します。  
 完了すると以下のような画面が表示されます。
 
-![Metashape to RealityScan](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/036-MetaShapeConverter.jpg)
+![Metashape to RealityScan](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/036-MetaShapeConverter_2.jpg)
 
 SfM の結果を RealityScan に取り込む準備が整いました。
 
