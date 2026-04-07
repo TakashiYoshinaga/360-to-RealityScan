@@ -4,7 +4,7 @@
 
 Gaussian Splatting is gaining attention as a method for recreating wide outdoor scenes in 3D. While related information is increasingly appearing on social media and blogs, it is scattered across many sources, making it difficult to build an efficient workflow.
 
-In the previous articles — [Basic Workflow](../Basic/article-EN.md) and [Quality Improvement Edition](../Advanced/article-EN.md) — I introduced a workflow built entirely around free-to-use tools that I personally use for Gaussian Splatting as a hobby. This time, I'll introduce a workflow using **Metashape (Standard Eddition)**, a relatively popular paid SfM tool, along with additional post-processing steps.
+In the previous articles — [Basic Workflow](../Basic/article-EN.md) and [Quality Improvement Edition](../Advanced/article-EN.md) — I introduced a workflow built entirely around free-to-use tools that I personally use for Gaussian Splatting as a hobby. This time, I'll introduce a workflow using **Metashape (Standard Edition)**, a relatively popular paid SfM tool, along with additional post-processing steps.
 
 > **💡 Before You Start**  
 > This article includes a step that involves running a Python script. If you're new to Gaussian Splatting or unfamiliar with Python, I recommend working through the free-tools-based [Basic Workflow](../Basic/article-EN.md) first to understand the overall process before tackling this one.
@@ -36,7 +36,7 @@ In the previous articles — [Basic Workflow](../Basic/article-EN.md) and [Quali
 |----------|---------|
 | [LichtFeld Studio v0.5.1](https://lichtfeld.io/) | GUI tool for 3D Gaussian Splatting |
 | [360° Gaussian v1.3.0](https://laskosvirtuals.gumroad.com/l/360gaussian) | Tool to automate each step of Gaussian Splatting |
-| [Metashape (Standard Eddition)](https://oakcorp.net/agisoft/standard/) | Used for SfM and point cloud generation |
+| [Metashape (Standard Edition)](https://oakcorp.net/agisoft/standard/) | Used for SfM and point cloud generation |
 | [RealityScan](https://www.realityscan.com/) | Used for point cloud regeneration |
 | [360-to-RealityScan](https://github.com/TakashiYoshinaga/360-to-RealityScan) | Converts Metashape results into a format readable by RealityScan (.xmp) |
 
@@ -378,8 +378,7 @@ Here is an example training configuration. Feel free to experiment with differen
 | More than 300 images | `number of images / 300` |
 
 > **⚠️ If Training Doesn't Work**  
-> If the Gaussian Splatting training fails to converge and the view whites out as steps progress, setting Steps Scaler to **2–3x** the value of `number of images / 300` tends to stabilize training.  
-> In the author's experience, it's also common practice to start training with a value around **1.5–2x** the recommended value from the beginning.
+> If the Gaussian Splatting training fails to converge and the view whites out as steps progress, setting Steps Scaler to **2–3x** the value of `number of images / 300` tends to stabilize training.
 
 4.　Set **Max Gaussians** for the maximum number of Gaussians  
    The default value is generally fine, but increase it if the output lacks detail.
