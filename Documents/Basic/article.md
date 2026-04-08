@@ -35,7 +35,7 @@
 | ソフトウェア | 用途 |
 |------------|------|
 | [LichtFeld Studio v0.5.1](https://lichtfeld.io/) | 3D Gaussian Splatting の GUI ツール |
-| [360° Gaussian v1.4.0](https://laskosvirtuals.gumroad.com/l/360gaussian) | Gaussian Splatting の各ステップを自動化するツール（2026/4/4 更新） |
+| [360° Gaussian v1.4.2](https://laskosvirtuals.gumroad.com/l/360gaussian) | Gaussian Splatting の各ステップを自動化するツール（2026/4/8 更新） |
 
 ---
 

@@ -59,7 +59,7 @@ After generating SfM and a point cloud from Equirectangular images, the followin
 | Software | Purpose |
 |----------|---------|
 | [LichtFeld Studio v0.5.1](https://lichtfeld.io/) | GUI tool for 3D Gaussian Splatting |
-| [360° Gaussian v1.4.0](https://laskosvirtuals.gumroad.com/l/360gaussian) | Tool to automate each step of Gaussian Splatting (Updated: April 4, 2026) |
+| [360° Gaussian v1.4.2](https://laskosvirtuals.gumroad.com/l/360gaussian) | Tool to automate each step of Gaussian Splatting (Updated: April 8, 2026) |
 | [RealityScan](https://www.realityscan.com/) | Used for point cloud regeneration |
 | [360-to-RealityScan](https://github.com/TakashiYoshinaga/360-to-RealityScan) | Converts SphereSfM results into a format readable by RealityScan (.xmp) |
 

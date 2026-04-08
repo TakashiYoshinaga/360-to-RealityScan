@@ -35,7 +35,7 @@ In the previous articles — [Basic Workflow](../Basic/article-EN.md) and [Quali
 | Software | Purpose |
 |----------|---------|
 | [LichtFeld Studio v0.5.1](https://lichtfeld.io/) | GUI tool for 3D Gaussian Splatting |
-| [360° Gaussian v1.3.0](https://laskosvirtuals.gumroad.com/l/360gaussian) | Tool to automate each step of Gaussian Splatting |
+| [360° Gaussian v1.4.2](https://laskosvirtuals.gumroad.com/l/360gaussian) | Tool to automate each step of Gaussian Splatting |
 | [Metashape (Standard Edition)](https://oakcorp.net/agisoft/standard/) | Used for SfM and point cloud generation |
 | [RealityScan](https://www.realityscan.com/) | Used for point cloud regeneration |
 | [360-to-RealityScan](https://github.com/TakashiYoshinaga/360-to-RealityScan) | Converts Metashape results into a format readable by RealityScan (.xmp) |
