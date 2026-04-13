@@ -151,7 +151,7 @@ def read_ply(filepath: str) -> Tuple[np.ndarray, Optional[np.ndarray]]:
 # ─────────────────────────────────────────────
 SUPPORTED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".tif", ".tiff", ".webp"}
 DEFAULT_FOV = 90
-DEFAULT_OVERLAP = 0.3
+DEFAULT_SPLITS_EQ = 6
 DEFAULT_PITCHES = ""
 DEFAULT_WIDTH = 960
 DEFAULT_ASPECT = "1:1"
@@ -448,7 +448,7 @@ def execute_conversion(
     ply_path: Optional[str],
     masks_dir: Optional[str],
     h_fov: float,
-    overlap: float,
+    n_eq_input: int,
     pitches: List[float],
     output_width: int,
     aspect_ratio: float,
@@ -503,15 +503,11 @@ def execute_conversion(
         # ── 4. Calculate split angles ──
         output_height = int(output_width / aspect_ratio)
         v_fov = derive_vertical_fov(h_fov, aspect_ratio)
-        yaw_interval = compute_yaw_interval(h_fov, overlap)
-
-        # Equator yaw angles (base, preserves original cumulative behaviour)
-        yaw_angles_eq: List[float] = []
-        yaw = 0.0
-        while yaw < 360.0:
-            yaw_angles_eq.append(round(yaw, 2))
-            yaw += yaw_interval
-        n_eq = len(yaw_angles_eq)
+        # Equator yaw angles (uniformly spaced by split count)
+        n_eq = max(1, n_eq_input)
+        yaw_angles_eq: List[float] = [round(360.0 / n_eq * i, 2) for i in range(n_eq)]
+        actual_interval = 360.0 / n_eq
+        actual_overlap = 1.0 - actual_interval / h_fov
 
         # Always include 0°; merge with user-specified additional pitches
         all_pitches: List[float] = sorted(set([0.0] + [float(p) for p in pitches]))
@@ -524,9 +520,9 @@ def execute_conversion(
         log_callback(f"📐 Settings:")
         log_callback(f"   Horizontal FOV  : {h_fov}°")
         log_callback(f"   Vertical FOV    : {v_fov:.1f}°")
-        log_callback(f"   Overlap Rate    : {overlap} (at equator 0°)")
-        log_callback(f"   Yaw Step (eq)   : {yaw_interval:.1f}°")
-        log_callback(f"   Yaw Count (eq)  : {n_eq}")
+        log_callback(f"   Split Count (eq): {n_eq}")
+        log_callback(f"   Yaw Interval    : {actual_interval:.1f}°")
+        log_callback(f"   Actual Overlap  : {actual_overlap:.1%} (at equator 0°)")
         log_callback(f"   Pitch Values    : {all_pitches}")
         for p in all_pitches:
             log_callback(f"     pitch {p:+.0f}° → {len(yaw_angles_per_pitch[p])} views")
@@ -925,7 +921,7 @@ class MetashapeToRSApp:
         self.masks_var: tk.StringVar = None  # type: ignore
         self.output_var: tk.StringVar = None  # type: ignore
         self.fov_var: tk.StringVar = None  # type: ignore
-        self.overlap_var: tk.StringVar = None  # type: ignore
+        self.splits_eq_var: tk.StringVar = None  # type: ignore
         self.pitch_var: tk.StringVar = None  # type: ignore
         self.width_var: tk.StringVar = None  # type: ignore
         self.aspect_var: tk.StringVar = None  # type: ignore
@@ -1028,13 +1024,13 @@ class MetashapeToRSApp:
             row=row, column=1, sticky=tk.W, padx=5
         )
 
-        # Overlap
+        # Split count
         row += 1
-        ttk.Label(settings_frame, text="Overlap Rate (0–1, at Equator 0°):").grid(
+        ttk.Label(settings_frame, text="Split Count (Equator):").grid(
             row=row, column=0, sticky=tk.W, pady=3
         )
-        self.overlap_var = tk.StringVar(value=str(DEFAULT_OVERLAP))
-        ttk.Entry(settings_frame, textvariable=self.overlap_var, width=10).grid(
+        self.splits_eq_var = tk.StringVar(value=str(DEFAULT_SPLITS_EQ))
+        ttk.Entry(settings_frame, textvariable=self.splits_eq_var, width=10).grid(
             row=row, column=1, sticky=tk.W, padx=5
         )
 
@@ -1184,11 +1180,11 @@ class MetashapeToRSApp:
             return
 
         try:
-            overlap = float(self.overlap_var.get())
-            if not (0 <= overlap < 1):
+            splits_eq = int(self.splits_eq_var.get())
+            if splits_eq < 1:
                 raise ValueError
         except ValueError:
-            messagebox.showwarning("Input Error", "Overlap Rate must be a number from 0 to less than 1.")
+            messagebox.showwarning("Input Error", "Split Count must be an integer of 1 or more.")
             return
 
         pitch_str = self.pitch_var.get().strip()
@@ -1241,7 +1237,7 @@ class MetashapeToRSApp:
                 ply_path,
                 masks_dir,
                 h_fov,
-                overlap,
+                splits_eq,
                 pitches,
                 out_width,
                 aspect_ratio,
