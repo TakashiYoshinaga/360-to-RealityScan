@@ -456,6 +456,8 @@ def execute_conversion(
     log_callback,
     progress_callback,
     done_callback,
+    cancel_event: threading.Event = None,
+    cancel_cleanup_callback=None,
 ):
     """Run the conversion in a background thread."""
     try:
@@ -470,7 +472,6 @@ def execute_conversion(
 
         if not src_images:
             log_callback("⚠️ No image files were found.")
-            done_callback()
             return
 
         mask_lookup: Dict[str, Path] = {}
@@ -606,7 +607,6 @@ def execute_conversion(
 
         if not cam_records:
             log_callback("⚠️ No valid cameras found. Please check that the XML and image folder match.")
-            done_callback()
             return
 
         log_callback(f"📷 Valid cameras: {len(cam_records)}")
@@ -723,9 +723,15 @@ def execute_conversion(
                 res = extract_perspective_view(src, out_p, y, p, hf, vf, ow, oh)
                 return (res, oname)
 
+            _cancelled = False
             with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
                 futures = {executor.submit(run_split_task, args): args for args in split_tasks}
                 for future in concurrent.futures.as_completed(futures):
+                    if cancel_event is not None and cancel_event.is_set():
+                        for f in futures:
+                            f.cancel()
+                        _cancelled = True
+                        break
                     res, oname = future.result()
                     completed += 1
                     progress_callback(completed, total_work)
@@ -736,6 +742,13 @@ def execute_conversion(
                             err_lines = res.stderr.strip().splitlines()
                             err_msg = "\n     ".join(err_lines[-3:]) if err_lines else "Unknown error"
                             log_callback(f"     {err_msg}")
+
+            if _cancelled:
+                log_callback("")
+                log_callback("⚠️ Processing was cancelled. Already-running images were completed; queued images were skipped.")
+                if cancel_cleanup_callback is not None:
+                    cancel_cleanup_callback(str(out_root))
+                return
 
         if skip_crop:
             log_callback("")
@@ -927,6 +940,8 @@ class MetashapeToRSApp:
         self.aspect_var: tk.StringVar = None  # type: ignore
         self.skip_crop_var: tk.BooleanVar = None  # type: ignore
         self.run_button: ttk.Button = None  # type: ignore
+        self.cancel_button: ttk.Button = None  # type: ignore
+        self._cancel_event: threading.Event = None  # type: ignore
         self.progress_var: tk.DoubleVar = None  # type: ignore
         self.progress_bar: ttk.Progressbar = None  # type: ignore
         self.progress_label: ttk.Label = None  # type: ignore
@@ -1085,6 +1100,11 @@ class MetashapeToRSApp:
         )
         self.run_button.pack(side=tk.LEFT)
 
+        self.cancel_button = ttk.Button(
+            action_frame, text="⏹ Cancel", command=self._cancel_conversion, state=tk.DISABLED
+        )
+        self.cancel_button.pack(side=tk.LEFT, padx=(5, 0))
+
         self.progress_var = tk.DoubleVar(value=0)
         self.progress_bar = ttk.Progressbar(
             action_frame, variable=self.progress_var, maximum=100
@@ -1134,7 +1154,33 @@ class MetashapeToRSApp:
     def _on_done(self):
         def _finish():
             self.run_button.config(state=tk.NORMAL)
+            self.cancel_button.config(state=tk.DISABLED)
         self.root.after(0, _finish)
+
+    # ── Cancel callback ──
+    def _cancel_conversion(self):
+        if self._cancel_event is not None:
+            self._cancel_event.set()
+            self.cancel_button.config(state=tk.DISABLED)
+
+    # ── Cancel cleanup callback (called from background thread) ──
+    def _on_cancel_cleanup(self, out_root_str: str):
+        def _ask():
+            if messagebox.askyesno(
+                "Delete Output?",
+                f"Processing was cancelled.\nDelete the contents of the output folder?\n\n{out_root_str}",
+            ):
+                out_root = Path(out_root_str)
+                for sub in ["images", "masks", "all"]:
+                    d = out_root / sub
+                    if d.exists():
+                        shutil.rmtree(str(d))
+                for fname in ["cameras.txt", "images.txt", "points3D.txt"]:
+                    f = out_root / fname
+                    if f.exists():
+                        f.unlink()
+                self._log("🗑️ Output folder contents deleted.")
+        self.root.after(0, _ask)
 
     # ── Validate & start conversion ──
     def _start_conversion(self):
@@ -1226,6 +1272,8 @@ class MetashapeToRSApp:
         self.progress_var.set(0)
         self.progress_label.config(text="0 / 0")
         self.run_button.config(state=tk.DISABLED)
+        self._cancel_event = threading.Event()
+        self.cancel_button.config(state=tk.NORMAL)
 
         # Run conversion in background thread
         thread = threading.Thread(
@@ -1245,6 +1293,8 @@ class MetashapeToRSApp:
                 self._log,
                 self._update_progress,
                 self._on_done,
+                self._cancel_event,
+                self._on_cancel_cleanup,
             ),
             daemon=True,
         )
