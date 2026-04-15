@@ -213,6 +213,10 @@ LichtFeld を選択すると、SfM・点群生成・Gaussian Splatting まで一
 **Start** をクリックして SfM を実行します。  
 処理が完了すると、以下のような画面が表示されます。
 
+> **💡 初回実行時のご注意**  
+> 初回実行時には瞬時に処理が終わる場合があります。その際には **Batch Processing Complete** の前に **Failed to process:** と表示されます。  
+> その場合には一度 **Stop** ボタンをクリックしたのちに再度実行してみてください。
+
 ![SfM 完了画面](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/006-Complete.jpg)
 
 カメラの位置情報と点群が正しく生成されていることを確認してください。

@@ -213,6 +213,10 @@ In short, for large-scale scans, the combination of "**verify thoroughly (High I
 Click **Start** to run SfM.  
 When processing is complete, you'll see the following screen:
 
+> **💡 Note for first-time runs**  
+> On the first run, processing may complete instantly. In this case, **Failed to process:** may appear before **Batch Processing Complete**.  
+> If this happens, click the **Stop** button once and try running it again.
+
 ![SfM Complete Screen](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/006-Complete.jpg)
 
 Verify that the camera positions and point cloud have been generated correctly.
