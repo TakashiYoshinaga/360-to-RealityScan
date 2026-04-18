@@ -37,7 +37,7 @@ For techniques to further improve quality, please refer to the companion article
 | [LichtFeld Studio v0.5.1](https://lichtfeld.io/) | GUI tool for 3D Gaussian Splatting ※ |
 | [360° Gaussian v1.4.2](https://laskosvirtuals.gumroad.com/l/360gaussian) | Tool to automate each step of Gaussian Splatting (Updated: April 8, 2026) |
 
-> **※** Free distribution of pre-built binaries for LichtFeld Studio v0.5.1 has ended. To continue using it, you must either purchase a paid license or build it from source.  
+> **※** Free distribution of pre-built binaries for LichtFeld Studio v0.5.1 has ended. v0.4.0 remains available for free download. To use v0.5.1, you must either purchase a paid license or build it from source.  
 > To build it for free, follow the [build instructions here](https://github.com/MrNeRF/LichtFeld-Studio/wiki/Build-Instructions-%E2%80%90-Windows).  
 > Note: running the **Checkout stable version** command as written will build v0.4.0. Change it to `git checkout v0.5.1` before proceeding.  
 > The build process takes a long time, so plan to run it when you have plenty of time available.
