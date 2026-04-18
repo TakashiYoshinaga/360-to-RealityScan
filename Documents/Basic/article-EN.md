@@ -40,9 +40,9 @@ For techniques to further improve quality, please refer to the companion article
 > **※ (Updated: April 18, 2026)** Free distribution of pre-built binaries for LichtFeld Studio v0.5.1 has ended. v0.4.0 remains available for free download. To use v0.5.1, you must either purchase a paid license or build it from source.  
 > To build it for free, follow the [build instructions here](https://github.com/MrNeRF/LichtFeld-Studio/wiki/Build-Instructions-%E2%80%90-Windows).  
 > Note: **skip** the `git checkout v0.4.0` command in the **Checkout stable version** step.  
-> The build process takes a long time, so plan to run it when you have plenty of time available.  
 > Also note: although not mentioned in the official build instructions, **Perl** may be required. Install it from [Strawberry Perl](https://strawberryperl.com/).  
-> Be aware that the cmake bundled with Perl may take precedence over your system cmake. If this occurs, delete or temporarily rename `C:\Strawberry\c\bin\cmake.exe`. To be safe, restart your PC afterward.
+> Be aware that the cmake bundled with Perl may take precedence over your system cmake, so delete or temporarily rename `C:\Strawberry\c\bin\cmake.exe`. To be safe, restart your PC afterward.  
+> The build process takes a long time, so plan to run it when you have plenty of time available.
 
 ---
 
