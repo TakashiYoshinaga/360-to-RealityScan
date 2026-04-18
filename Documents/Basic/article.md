@@ -37,10 +37,12 @@
 | [LichtFeld Studio v0.5.1](https://lichtfeld.io/) | 3D Gaussian Splatting の GUI ツール ※ |
 | [360° Gaussian v1.4.2](https://laskosvirtuals.gumroad.com/l/360gaussian) | Gaussian Splatting の各ステップを自動化するツール（2026/4/8 更新） |
 
-> **※** LichtFeld Studio v0.5.1 のビルド済みバイナリの無償配布は終了しました。v0.4.0 は引き続き無償でダウンロード可能です。v0.5.1 を利用するには、有償ライセンスを購入するか、ソースコードから自分でビルドする必要があります。  
+> **※（2026年4月18日 追記）** LichtFeld Studio v0.5.1 のビルド済みバイナリの無償配布は終了しました。v0.4.0 は引き続き無償でダウンロード可能です。v0.5.1 を利用するには、有償ライセンスを購入するか、ソースコードから自分でビルドする必要があります。  
 > 無償でビルドする場合は、[こちらのビルド手順](https://github.com/MrNeRF/LichtFeld-Studio/wiki/Build-Instructions-%E2%80%90-Windows) を参照してください。  
-> なお、手順内の **Checkout stable version** のコマンドをそのまま実行すると v0.4.0 がビルドされます。`git checkout v0.5.1` に変更してから実行してください。  
-> ビルドには長い時間がかかるため、時間に余裕のあるときに実施することをお勧めします。
+> なお、手順内の **Checkout stable version** のステップに含まれる `git checkout v0.4.0` は**スキップしてください**。  
+> ビルドには長い時間がかかる場合もあるため、時間に余裕のあるときに実施することをお勧めします。  
+> また、公式ビルド手順には記載がありませんが、**Perl** のインストールが必要になる場合があります。[Strawberry Perl](https://strawberryperl.com/) からインストールしてください。  
+> ただし、Perl に同梱された cmake が優先的に実行されてしまうことがあります。その場合は `C:\Strawberry\c\bin\cmake.exe` を削除するか、一時的に別名に変更してください。念のため、その後 PC を再起動してください。
 
 ---
 
