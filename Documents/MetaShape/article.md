@@ -34,11 +34,16 @@
 
 | ソフトウェア | 用途 |
 |------------|------|
-| [LichtFeld Studio v0.5.1](https://lichtfeld.io/) | 3D Gaussian Splatting の GUI ツール |
+| [LichtFeld Studio v0.5.1](https://lichtfeld.io/) | 3D Gaussian Splatting の GUI ツール ※ |
 | [360° Gaussian v1.4.2](https://laskosvirtuals.gumroad.com/l/360gaussian) | Gaussian Splatting の各ステップを自動化するツール |
 | [Metashape(Standard版)](https://oakcorp.net/agisoft/standard/) | SfMと点群の生成に使用 |
 | [RealityScan](https://www.realityscan.com/) | 点群の再生成に使用 |
 | [360-to-RealityScan](https://github.com/TakashiYoshinaga/360-to-RealityScan) | Metashape の結果を RealityScan で読み込める形式（.xmp）に変換するツール |
+
+> **※** LichtFeld Studio v0.5.1 のビルド済みバイナリの無償配布は終了しました。引き続き利用するには、有償ライセンスを購入するか、ソースコードから自分でビルドする必要があります。  
+> 無償でビルドする場合は、[こちらのビルド手順](https://github.com/MrNeRF/LichtFeld-Studio/wiki/Build-Instructions-%E2%80%90-Windows) を参照してください。  
+> なお、手順内の **Checkout stable version** のコマンドをそのまま実行すると v0.4.0 がビルドされます。`git checkout v0.5.1` に変更してから実行してください。  
+> ビルドには長い時間がかかるため、時間に余裕のあるときに実施することをお勧めします。
 
 ### その他
 
