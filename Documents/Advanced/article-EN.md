@@ -64,11 +64,24 @@ After generating SfM and a point cloud from Equirectangular images, the followin
 | [360-to-RealityScan](https://github.com/TakashiYoshinaga/360-to-RealityScan) | Converts SphereSfM results into a format readable by RealityScan (.xmp) |
 
 > **※ (Updated: April 18, 2026)** Free distribution of pre-built binaries for LichtFeld Studio v0.5.1 has ended. v0.4.0 remains available for free download. To use v0.5.1, you must either purchase a paid license or build it from source.  
+>  
+> **Notes for building from source**  
+> <details>
+> <summary>Click to expand</summary>
+>  
 > To build it for free, follow the [build instructions here](https://github.com/MrNeRF/LichtFeld-Studio/wiki/Build-Instructions-%E2%80%90-Windows).  
 > Note: **skip** the `git checkout v0.4.0` command in the **Checkout stable version** step.  
+> **Tip 1**  
 > Also note: although not mentioned in the official build instructions, **Perl** may be required. Install it from [Strawberry Perl](https://strawberryperl.com/).  
 > Be aware that the cmake bundled with Perl may take precedence over your system cmake, so delete or temporarily rename `C:\Strawberry\c\bin\cmake.exe`. To be safe, restart your PC afterward.  
-> The build process takes a long time, so plan to run it when you have plenty of time available.
+> **Tip 2**  
+> In the official documentation's **Clone repository** section, the following command did not always download all required files correctly in the author's environment:  
+> `git clone https://github.com/MrNeRF/LichtFeld-Studio`  
+> Instead, it is recommended to add the `--recursive` flag, or use a client tool such as Fork or GitHub Desktop:  
+> `git clone --recursive https://github.com/MrNeRF/LichtFeld-Studio`  
+> The build process takes a long time, so plan to run it when you have plenty of time available.  
+>  
+> </details>
 
 ### Other
 
