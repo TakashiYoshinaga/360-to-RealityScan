@@ -35,27 +35,29 @@
 | ソフトウェア | 用途 |
 |------------|------|
 | [LichtFeld Studio v0.5.1](https://lichtfeld.io/) | 3D Gaussian Splatting の GUI ツール ※ |
-| [360° Gaussian v1.4.2](https://laskosvirtuals.gumroad.com/l/360gaussian) | Gaussian Splatting の各ステップを自動化するツール |
+| [360° Gaussian v1.4.2](https://laskosvirtuals.gumroad.com/l/360gaussian) | Gaussian Splatting の各ステップを自動化するツール（2026/4/8 更新） |
 | [Metashape(Standard版)](https://oakcorp.net/agisoft/standard/) | SfMと点群の生成に使用 |
 | [RealityScan](https://www.realityscan.com/) | 点群の再生成に使用 |
 | [360-to-RealityScan](https://github.com/TakashiYoshinaga/360-to-RealityScan) | Metashape の結果を RealityScan で読み込める形式（.xmp）に変換するツール |
 
 > **※（2026年4月18日 追記）** LichtFeld Studio v0.5.1 のビルド済みバイナリの無償配布は終了しました。v0.4.0 は引き続き無償でダウンロード可能です。v0.5.1 を利用するには、有償ライセンスを購入するか、ソースコードから自分でビルドする必要があります。  
+> GitHub で公開されている最新機能を試したい方や、ライセンス購入前に v0.5.1 を試したい方は、下記を参考に自分でのビルドもお試しください。  
 >  
 > **自分でビルドする場合の注意点**  
 > <details>
 > <summary>クリックして展開</summary>
 >  
-> 無償でビルドする場合は、[こちらのビルド手順](https://github.com/MrNeRF/LichtFeld-Studio/wiki/Build-Instructions-%E2%80%90-Windows) を参照してください。  
-> なお、手順内の **Checkout stable version** のステップに含まれる `git checkout v0.4.0` は**スキップしてください**。  
+> 自分でビルドする場合は、[こちらのビルド手順](https://github.com/MrNeRF/LichtFeld-Studio/wiki/Build-Instructions-%E2%80%90-Windows) を参照してください。  
 > **ヒント1**  
 > また、公式ビルド手順には記載がありませんが、**Perl** のインストールが必要になる場合があります。[Strawberry Perl](https://strawberryperl.com/) からインストールしてください。  
-> ただし、Perl に同梱された cmake が優先的に実行されてしまうことがありますので、`C:\Strawberry\c\bin\cmake.exe` を削除するか、一時的に別名に変更してください。念のため、その後 PC を再起動してください。  
+> ただし、Perl に同梱された cmake が優先的に実行されてしまうことがありますので、`C:\Strawberry\c\bin\cmake.exe` はまず一時的に別名に変更し、必要な場合のみ削除してください。念のため、その後 PC を再起動してください。  
 > **ヒント2**  
 > 公式資料の **Clone repository** の下記コマンドでは、筆者の環境で必要なファイルが正しくダウンロードされないケースが見受けられました。  
 > `git clone https://github.com/MrNeRF/LichtFeld-Studio`  
-> 代わりに、以下のように `--recursive` フラグを付けるか、Fork や GitHub Desktop などのクライアントソフトで clone することをお勧めします。  
+> 代わりに、サブモジュールの取得漏れを防ぐため、以下のように `--recursive` フラグを付けるか、Fork や GitHub Desktop などのクライアントソフトで clone することをお勧めします。  
 > `git clone --recursive https://github.com/MrNeRF/LichtFeld-Studio`  
+> **ヒント3**  
+> なお、手順内の **Checkout stable version** のステップに含まれる `git checkout v0.4.0` は**スキップしてください**。  
 > ビルドには長い時間がかかる場合もあるため、時間に余裕のあるときに実施することをお勧めします。  
 >  
 > </details>
