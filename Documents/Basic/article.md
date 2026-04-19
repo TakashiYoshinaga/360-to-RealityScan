@@ -47,7 +47,7 @@
 > 自分でビルドする場合は、[こちらのビルド手順](https://github.com/MrNeRF/LichtFeld-Studio/wiki/Build-Instructions-%E2%80%90-Windows) を参照してください。  
 > **ヒント1**  
 > また、公式ビルド手順には記載がありませんが、**Perl** のインストールが必要になる場合があります。[Strawberry Perl](https://strawberryperl.com/) からインストールしてください。  
-> ただし、Perl に同梱された cmake が優先的に実行されてしまうことがありますので、`C:\Strawberry\c\bin\cmake.exe` はまず一時的に別名に変更し、必要な場合のみ削除してください。念のため、その後 PC を再起動してください。  
+> ただし、Perl に同梱された cmake が優先的に実行されてしまうことがありますので、`C:\Strawberry\c\bin\cmake.exe` はまず一時的に別名に変更し、今後不要そうであれば削除してください。念のため、その後 PC を再起動してください。  
 > **ヒント2**  
 > 公式資料の **Clone repository** の下記コマンドでは、筆者の環境で必要なファイルが正しくダウンロードされないケースが見受けられました。  
 > `git clone https://github.com/MrNeRF/LichtFeld-Studio`  
