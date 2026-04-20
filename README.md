@@ -1,5 +1,5 @@
 # 360-to-RealityScan
-A tool for converting 360° equirectangular image-based SfM/NeRF results into RealityScan compatible images/XMP and COLMAP format for verification. Features automatic splitting, pose calculation, and mask support.
+A tool for converting SfM results from [360° Gaussian](https://laskosvirtuals.gumroad.com/l/360gaussian) into RealityScan compatible images/XMP and COLMAP format for verification. Features automatic splitting, pose calculation, and mask support.
 
 [日本語版はこちら](README_JP.md)
 
