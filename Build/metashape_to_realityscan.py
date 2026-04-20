@@ -190,6 +190,9 @@ def _save_config(data: dict) -> None:
 _cfg = _load_config()
 FFMPEG_EXE: str = _cfg.get("ffmpeg_path", "ffmpeg")
 
+# Suppress console windows when spawning subprocesses on Windows
+_SUBPROCESS_FLAGS = subprocess.CREATE_NO_WINDOW if sys.platform == "win32" else 0
+
 
 # ─────────────────────────────────────────────
 # FFmpeg Check
@@ -202,6 +205,7 @@ def check_ffmpeg() -> bool:
             capture_output=True,
             text=True,
             timeout=10,
+            creationflags=_SUBPROCESS_FLAGS,
         )
         return result.returncode == 0
     except FileNotFoundError:
@@ -469,6 +473,7 @@ def extract_perspective_view(
         capture_output=True,
         text=True,
         timeout=120,
+        creationflags=_SUBPROCESS_FLAGS,
     )
 
 
