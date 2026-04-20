@@ -156,7 +156,8 @@ You can build Windows executables from source using the provided PowerShell scri
 
 - [Anaconda](https://www.anaconda.com/download) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
 - A conda environment with **Python 3.10+** and **NumPy** installed (see [Setup](#setup) above)
-- **ffmpeg is NOT bundled** in the exe (license reasons). Users set the path manually in the GUI.
+- **ffmpeg is NOT bundled** in the exe (license reasons). Users set the path manually in the GUI.  
+  Download ffmpeg for Windows from: https://github.com/BtbN/FFmpeg-Builds/releases
 
 ### Build
 
