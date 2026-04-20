@@ -145,3 +145,48 @@ For instructions on integrating this tool into a full Gaussian Splatting workflo
 
 - [SphereSfM](Documents/Advanced/article-EN.md)
 - [MetaShape](Documents/MetaShape/article-EN.md)
+
+---
+
+## Building Executables (for Developers)
+
+You can build Windows executables from source using the provided PowerShell script.
+
+### Prerequisites
+
+- [Anaconda](https://www.anaconda.com/download) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
+- A conda environment with **Python 3.10+** and **NumPy** installed (see [Setup](#setup) above)
+- **ffmpeg is NOT bundled** in the exe (license reasons). Users set the path manually in the GUI.
+
+### Build
+
+Open PowerShell and run:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
+.\Build\build.ps1
+```
+
+If your conda environment name is not `gs_env`, specify it with `-CondaEnv`:
+
+```powershell
+.\Build\build.ps1 -CondaEnv myenv
+```
+
+You can also build only one tool at a time:
+
+```powershell
+.\Build\build.ps1 -Target metashape   # MetashapeToRS.exe only
+.\Build\build.ps1 -Target spheresfm   # SphereSfMToRS.exe only
+```
+
+Output files are placed in `Build\dist\`:
+
+| File | Source |
+|------|--------|
+| `MetashapeToRS.exe` | `Build\metashape_to_realityscan.py` |
+| `SphereSfMToRS.exe` | `Build\spheresfm_to_realityscan.py` |
+
+> conda is detected automatically from PATH or common installation locations.  
+> PyInstaller is installed automatically if not already present.
+

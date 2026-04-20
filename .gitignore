@@ -1,0 +1,12 @@
+﻿.github/copilot-instructions.md
+run_metashape_to_realityscan.bat
+run_spheresfm_to_realityscan.bat
+
+# PyInstaller build artifacts
+Build/dist/
+Build/build_tmp/
+Build/spec/
+
+# Python cache
+__pycache__/
+*.pyc
