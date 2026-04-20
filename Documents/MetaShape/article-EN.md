@@ -66,7 +66,7 @@ In the previous articles — [Basic Workflow](../Basic/article-EN.md) and [Quali
 
 - **Python environment** (e.g., Anaconda)  
   Required only if you run 360-to-RealityScan directly as a Python script.  
-  Not required if you use the pre-built executable (.exe) for 360-to-RealityScan.
+  Not required if you use the pre-built executable (.exe) for 360-to-RealityScan. Download **MetashapeToRS.exe** from [Releases](https://github.com/TakashiYoshinaga/360-to-RealityScan/releases).
 
 ---
 

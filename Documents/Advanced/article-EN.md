@@ -88,8 +88,8 @@ After generating SfM and a point cloud from Equirectangular images, the followin
 ### Other
 
 - **Python environment** (e.g., Anaconda)  
-  Required only if you build LichtFeld Studio yourself or run 360-to-RealityScan directly as a Python script.  
-  Not required if you use the pre-built executables (.exe) for both LichtFeld Studio and 360-to-RealityScan.
+  Required only if you run 360-to-RealityScan directly as a Python script.  
+  Not required if you use the pre-built executable (.exe) for 360-to-RealityScan. Download **SphereSfMToRS.exe** from [Releases](https://github.com/TakashiYoshinaga/360-to-RealityScan/releases).
 
 ---
 

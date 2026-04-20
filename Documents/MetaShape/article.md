@@ -65,8 +65,8 @@
 ### その他
 
 - **Python 実行環境**（例：Anaconda）  
-  Metashape を自分でビルドする場合、または 360-to-RealityScan を Python スクリプトとして直接実行する場合に必要です。  
-  360-to-RealityScan のビルド済み実行形式（.exe）を使用する場合はインストール不要です。
+  360-to-RealityScan を Python スクリプトとして直接実行する場合に必要です。  
+  360-to-RealityScan のビルド済み実行形式（.exe）を使用する場合はインストール不要です。[こちら](https://github.com/TakashiYoshinaga/360-to-RealityScan/releases)から **MetashapeToRS.exe** をダウンロードしてください。
 
 ---
 
