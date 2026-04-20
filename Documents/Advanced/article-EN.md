@@ -87,8 +87,9 @@ After generating SfM and a point cloud from Equirectangular images, the followin
 
 ### Other
 
-- **Python environment** (for 360-to-RealityScan)  
-  e.g., Anaconda
+- **Python environment** (e.g., Anaconda)  
+  Required only if you build LichtFeld Studio yourself or run 360-to-RealityScan directly as a Python script.  
+  Not required if you use the pre-built executables (.exe) for both LichtFeld Studio and 360-to-RealityScan.
 
 ---
 
@@ -274,18 +275,20 @@ This is the key step in this article. The SfM results are imported into RealityS
 
 ### 3.1 Input/Output File Configuration
 
-1.　Open a terminal (Python environment) and run the following command to launch **`spheresfm_to_realityscan.py`**:
+1.　Download **`SphereSfMToRS.exe`** from [Releases](https://github.com/TakashiYoshinaga/360-to-RealityScan/releases) and launch it by double-clicking (no Anaconda or Python required)
 
-```bash
-cd C:\path\to\360-to-RealityScan
-python spheresfm_to_realityscan.py
-```
+   On first launch, enter the path to `ffmpeg.exe` in the **FFmpeg (.exe) path** field at the bottom of the window and click 💾 to save
 
-> **📝 Note**  
-> For instructions on how to obtain the script and set up the environment, refer to the README in the repository below.  
-> https://github.com/TakashiYoshinaga/360-to-RealityScan
+> [!NOTE]
+> **Running as a Python script**  
+> Open a terminal (Python environment) and run:
+> ```bash
+> cd C:\path\to\360-to-RealityScan
+> python spheresfm_to_realityscan.py
+> ```
+> For setup instructions, refer to the README at https://github.com/TakashiYoshinaga/360-to-RealityScan
 
-2.　Specify each path as follows:  
+2.　Specify each path as follows:
 
 | Item | Target |
 |------|--------|
