@@ -34,11 +34,11 @@
 
 | ソフトウェア | 用途 |
 |------------|------|
-| [LichtFeld Studio v0.5.1](https://lichtfeld.io/) | 3D Gaussian Splatting の GUI ツール ※ |
-| [360° Gaussian v1.4.2](https://laskosvirtuals.gumroad.com/l/360gaussian) | Gaussian Splatting の各ステップを自動化するツール（2026/4/8 更新） |
+| [LichtFeld Studio v0.5.2](https://lichtfeld.io/) | 3D Gaussian Splatting の GUI ツール ※ |
+| [360° Gaussian v1.4.3](https://laskosvirtuals.gumroad.com/l/360gaussian) | Gaussian Splatting の各ステップを自動化するツール（2026/4/8 更新） |
 
-> **※（2026年4月18日 追記）** LichtFeld Studio v0.5.1 のビルド済みバイナリの無償配布は終了しました。v0.4.0 は引き続き無償でダウンロード可能です。v0.5.1 を利用するには、有償ライセンスを購入するか、ソースコードから自分でビルドする必要があります。  
-> GitHub で公開されている最新機能を試したい方や、ライセンス購入前に v0.5.1 を試したい方は、下記を参考に自分でのビルドもお試しください。  
+> **※（2026年4月18日 追記）** LichtFeld Studio v0.5.2 のビルド済みバイナリの無償配布は終了しました。v0.4.0 は引き続き無償でダウンロード可能です。v0.5.2 を利用するには、有償ライセンスを購入するか、ソースコードから自分でビルドする必要があります。  
+> GitHub で公開されている最新機能を試したい方や、ライセンス購入前に v0.5.2 を試したい方は、下記を参考に自分でのビルドもお試しください。  
 >  
 > **自分でビルドする場合の注意点**  
 > <details>

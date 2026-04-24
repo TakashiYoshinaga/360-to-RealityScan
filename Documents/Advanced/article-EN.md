@@ -58,13 +58,13 @@ After generating SfM and a point cloud from Equirectangular images, the followin
 
 | Software | Purpose |
 |----------|---------|
-| [LichtFeld Studio v0.5.1](https://lichtfeld.io/) | GUI tool for 3D Gaussian Splatting ※ |
-| [360° Gaussian v1.4.2](https://laskosvirtuals.gumroad.com/l/360gaussian) | Tool to automate each step of Gaussian Splatting (Updated: April 8, 2026) |
+| [LichtFeld Studio v0.5.2](https://lichtfeld.io/) | GUI tool for 3D Gaussian Splatting ※ |
+| [360° Gaussian v1.4.3](https://laskosvirtuals.gumroad.com/l/360gaussian) | Tool to automate each step of Gaussian Splatting (Updated: April 8, 2026) |
 | [RealityScan](https://www.realityscan.com/) | Used for point cloud regeneration |
 | [360-to-RealityScan](https://github.com/TakashiYoshinaga/360-to-RealityScan) | Converts SphereSfM results into a format readable by RealityScan (.xmp) |
 
-> **※ (Updated: April 18, 2026)** Free distribution of pre-built binaries for LichtFeld Studio v0.5.1 has ended. v0.4.0 remains available for free download. To use v0.5.1, you must either purchase a paid license or build it from source.  
-> If you want to try the latest features available on GitHub, or try v0.5.1 before purchasing a license, please refer to the notes below and try building it yourself.  
+> **※ (Updated: April 18, 2026)** Free distribution of pre-built binaries for LichtFeld Studio v0.5.2 has ended. v0.4.0 remains available for free download. To use v0.5.2, you must either purchase a paid license or build it from source.  
+> If you want to try the latest features available on GitHub, or try v0.5.2 before purchasing a license, please refer to the notes below and try building it yourself.  
 >  
 > **Notes for building from source**  
 > <details>
