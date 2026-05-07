@@ -58,6 +58,11 @@
 > ビルドには長い時間がかかる場合もあるため、時間に余裕のあるときに実施することをお勧めします。  
 >  
 > </details>
+.
+> **📢 360° Gaussian のアップデートについて**  
+> 360° Gaussian を起動した際、画面右下に以下のように **「update」** と表示されている場合は、必ずアップデートを行ってください。  
+> ![360° Gaussian のアップデート通知](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/039-360GaussianUpdate.jpg)  
+> オプションアプリの **AutoMasker** を導入している場合は、同様に AutoMasker のアップデートも確認してください。
 
 ---
 

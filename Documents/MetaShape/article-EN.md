@@ -61,6 +61,11 @@ In the previous articles — [Basic Workflow](../Basic/article-EN.md) and [Quali
 > The build process takes a long time, so plan to run it when you have plenty of time available.  
 >  
 > </details>
+.
+> **📢 Updating 360° Gaussian**  
+> When you launch 360° Gaussian, if **“update”** is displayed in the lower-right corner of the screen as shown below, make sure to update the application before proceeding.  
+> ![360° Gaussian Update Notification](https://raw.githubusercontent.com/TakashiYoshinaga/360-to-RealityScan/main/Documents/Images/039-360GaussianUpdate.jpg)  
+> If you have the optional **AutoMasker** app installed, also check whether an update is available for AutoMasker as well.
 
 ### Other
 
