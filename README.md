@@ -191,3 +191,8 @@ Output files are placed in `Build\dist\`:
 > conda is detected automatically from PATH or common installation locations.  
 > PyInstaller is installed automatically if not already present.
 
+## Support
+
+If you find this project useful, you can support me via PayPal:  
+[![Donate with PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/TakashiYoshinaga)  
+
